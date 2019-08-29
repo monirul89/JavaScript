@@ -17,34 +17,69 @@
             </header>
             <section class="maincontent">
 
-                <div id="showDiv">Items Add</div>
-                <input type="text" id="item" placeholder="Items..">
+                First : <input type="text" id="num1">
+                Second : <input type="text" id="num2"><br><br>
+                <input type="button" onclick="addBy()" value="Add">
+                <input type="button" onclick="subBy()" value="Subtract">
+                <input type="button" onclick="mulBy()" value="Multiply">
+                <input type="button" onclick="divBy()" value="Divide">
                 <br>
-                <input type="button" onclick="addItem()" value="Add Item">
-                <div id="itemList"></div>
+                <div id="output"></div>
                 <script type="application/javascript">
-
-                    var shoppingList =[];
-
-                    function addItem(){
-                        
-                        var addItem = document.getElementById("item").value;
-                        shoppingList.push(addItem);
-                        
-                        function outputList(){
-                            var html ="";
-                            var itemList = document.getElementById("itemList");
-
-                            for(var x=0; x<shoppingList.length; x++){
-                                html += (x+1)+ "."+shoppingList[x]+"<br>";
-                            }
-
-                            itemList.innerHTML=html+"<br>";
-                        }
-
-                        outputList();
-
-                    }
+                    
+//                    var output = document.getElementById("output");
+//                    var num1 = document.getElementById("num1");
+//                    var num2 = document.getElementById("num2");
+//                    
+//                    function addBy(){
+//                        outC(num1.value, num2.value, "+", function(a,b){
+//                            return (a+b);
+//                        });
+//                    }
+//                    function subBy(){
+//                        outC(num1.value, num2.value, "-", function(a,b){
+//                            return a-b;
+//                        });
+//                    }
+//                    function mulBy(){
+//                        outC(num1.value, num2.value, "+", function(a,b){
+//                            return a*b;
+//                        });
+//                    }
+//                    function divBy(){
+//                        outC(num1.value, num2.value, "+", function(a, b){
+//                            return a/b;
+//                        });
+//                    }
+//                    
+//                    
+//                    function outC(a,b,s,cback){
+//                        var result = cback(Number(a), Number(b));
+//                        output.innerHTML += a +" "+s+" "+b+" = "+result+"<br>";
+//                    }
+                    
+                    
+//                    var shoppingList =[];
+//
+//                    function addItem(){
+//                        
+//                        var addItem = document.getElementById("item").value;
+//                        shoppingList.push(addItem);
+//                        
+//                        function outputList(){
+//                            var html ="";
+//                            var itemList = document.getElementById("itemList");
+//
+//                            for(var x=0; x<shoppingList.length; x++){
+//                                html += (x+1)+ "."+shoppingList[x]+"<br>";
+//                            }
+//
+//                            itemList.innerHTML=html+"<br>";
+//                        }
+//
+//                        outputList();
+//
+//                    }
 
 
                     //                    var showDiv = document.getElementById("showDiv");
