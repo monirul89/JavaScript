@@ -1,0 +1,25 @@
+body{
+    background-color:#dcdcdc;
+    padding: 0;
+    margin: 0;
+}
+.content{
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    background-color: aliceblue;
+    padding: 0px 20px;
+}
+.header,.maincontent{
+    border-bottom: 1px solid #ccc;
+}
+
+.maincontent{
+    height: 300px;
+}
+#showDiv{
+    border-bottom: 1px solid #ccc;
+}
+.header, .footer{
+    text-align: center;
+}

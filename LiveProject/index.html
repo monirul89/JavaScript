@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="main.css" type="text/css" />
+</head>
+<body>
+    <section class="content">
+       
+        <header class="header">
+            <h2><script>document.write("Tutorial : JavaScript Fundamentals");</script></h2>
+        </header>
+        <section class="maincontent">
+           
+           <div id="showDiv" onclick="liveProject()">innerText</div>
+           
+            <script>
+              function liveProject(){
+                  var a = 200;
+                  this.x = 300;
+                  this.y = 400;
+                  this.z = function(){
+                      return this.x + this.y;
+                  }
+              }
+                 var lp = new liveProject();
+                document.write(lp.y);
+            </script>
+        </section>
+        <footer class="footer">
+            <h2><script>document.write("Training with live project");</script></h2>
+        </footer>
+        
+    </section>
+</body>
+</html>

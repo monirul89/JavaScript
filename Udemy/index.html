@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaScript</title>
+        <link rel="stylesheet" href="main.css" type="text/css" />
+    </head>
+    <body>
+        <section class="content">
+
+            <header class="header">
+                <h2>
+                    <script type="application/javascript">
+                        document.write("Tutorial : JavaScript Fundamentals");
+                    </script>
+                </h2>
+            </header>
+            <section class="maincontent">
+
+                <div id="showDiv">innerText</div>
+
+
+
+                <script type="application/javascript">
+                    //                    var showDiv = document.getElementById("showDiv");
+                    //                    var myArray = ["hello","World",33,4454,433,"JavaScript","hello","World"];
+                    //                    var myArrayClean = removeDup(myArray);
+                    //                    
+                    //                    showDiv.innerHTML = myArray + "<br>"+myArrayClean;
+                    //                    
+                    //                    function removeDup(arr){
+                    //                        var cArray =[];
+                    //                        var cObject ={};
+                    //                        for(var x=0; x<arr.length; x++)
+                    //                        {
+                    //                            cObject[arr[x]]="what ever";
+                    //                        }
+                    //                        console.log(cObject);
+                    //                        for(z in cObject){
+                    //                            console.log(z);
+                    //                            cArray.push(z);
+                    //                        }
+                    //                        return cArray;
+                    //                    }
+
+                    var showDiv = document.getElementById("showDiv");
+                    var myArray = ["Hello", "World", 6554, 435, 54, 54356, "JavaScript","Css", "PHP", "JQuery", 6545,54356, "World","Hello", 6554];
+
+                    showDiv.innerHTML = myArray +"<br>"+mycArray(myArray)+"<br>";
+
+
+                    function mycArray(arr){
+                        var cArray =[];
+                        var cObject={};
+
+                        for(var x=0; x<arr.length; x++){
+                            cObject[arr[x]]="What ever";
+                        }
+
+                        for(var z in cObject){
+                            cArray.push(z);
+                        }
+
+                        return cArray;
+                    }
+
+                </script>
+
+
+            </section>
+            <footer class="footer">
+                <h2><script type="application/javascript">document.write("Training with live project");</script></h2>
+            </footer>
+
+        </section>
+    </body>
+</html>
