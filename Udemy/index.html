@@ -17,11 +17,18 @@
             </header>
             <section class="maincontent">
 
-                <div id="showDiv">innerText</div>
-
-
-
+                <div id="showDiv">Items Add</div>
+                <input type="text" id="item" placeholder="Items..">
+                <br>
+                <input type="button" onclick="addItem()" value="Add Item">
                 <script type="application/javascript">
+                    
+                    var shoppingList =[];
+                    function addItem(){
+                        var addItem = document.getElementById("item").value;
+                        console.log(addItem);
+                    }
+                    
                     //                    var showDiv = document.getElementById("showDiv");
                     //                    var myArray = ["hello","World",33,4454,433,"JavaScript","hello","World"];
                     //                    var myArrayClean = removeDup(myArray);
@@ -43,26 +50,26 @@
                     //                        return cArray;
                     //                    }
 
-                    var showDiv = document.getElementById("showDiv");
-                    var myArray = ["Hello", "World", 6554, 435, 54, 54356, "JavaScript","Css", "PHP", "JQuery", 6545,54356, "World","Hello", 6554];
-
-                    showDiv.innerHTML = myArray +"<br>"+mycArray(myArray)+"<br>";
-
-
-                    function mycArray(arr){
-                        var cArray =[];
-                        var cObject={};
-
-                        for(var x=0; x<arr.length; x++){
-                            cObject[arr[x]]="What ever";
-                        }
-
-                        for(var z in cObject){
-                            cArray.push(z);
-                        }
-
-                        return cArray;
-                    }
+//                    var showDiv = document.getElementById("showDiv");
+//                    var myArray = ["Hello", "World", 6554, 435, 54, 54356, "JavaScript","Css", "PHP", "JQuery", 6545,54356, "World","Hello", 6554];
+//
+//                    showDiv.innerHTML = myArray +"<br>"+mycArray(myArray)+"<br>";
+//
+//
+//                    function mycArray(arr){
+//                        var cArray =[];
+//                        var cObject={};
+//
+//                        for(var x=0; x<arr.length; x++){
+//                            cObject[arr[x]]="What ever";
+//                        }
+//
+//                        for(var z in cObject){
+//                            cArray.push(z);
+//                        }
+//
+//                        return cArray;
+//                    }
 
                 </script>
 
