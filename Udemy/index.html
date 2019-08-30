@@ -20,17 +20,26 @@
 				<div id="wrapper">
 					page 1
 				</div>
-				<img src="img/images2.jpg" alt="" id="imgSwap" onmouseover="cImg(this)">
+				<img width="200" height="100" src="img/images2.jpg" alt="" id="imgSwap" onmouseover="cImg(this)" onmouseout="bImg(this)">
 				
 				<script type="application/javascript">
 					
 					var output = document.getElementById("wrapper");
+					
 					var imgHolder = "img/images2.jpg";
+					window.onload = function(){
+						document.getElementById("imgSwap").src = imgHolder;
+					}
 					
 					function cImg(t){
 						message(t.src);
+						imgHolder = t.src;
 						
 						t.src = "img/images1.jpg";
+					}
+					
+					function bImg(t){
+						t.src = imgHolder;
 					}
 					
 					function message(m){
