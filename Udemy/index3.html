@@ -18,36 +18,18 @@
             <section class="maincontent">
 
                 <div id="wrapper">
-					page 1
+
                 </div>
                 <a href="index3.html">index3</a>
                 <a href="index.html">index</a>
                 <a href="index2.html">index2</a>
-                <input type="button" onclick="startInt()" value="Start">
-                <input type="button" onclick="clearInt()" value="Stop">
+                <input type="button" onclick="goBack()" value="print">
                 
                 <script type="application/javascript">
                     var output = document.getElementById("wrapper");
-					window.setTimeout(updateWrapper,5000);
-					var myTimer;
-					function startInt(){
-						myPopup();
-						myTimer = window.setTimeout(myPopup, 1000);
-					}
-					function updateWrapper(){
-						document.getElementById("wrapper").innerHTML = "Welcome to my Website :)";
-					}
-					function clearInt(){
-						window.clearInterval(myTimer);
-					}
-					function myPopup(){
-						alert("Time OUt");
-					}
-					console.dir(navigator);
-					
-//                    function goBack(){
-//                        window.history.go(-1);
-//                    }
+                    function goBack(){
+                        window.history.go(-1);
+                    }
                     
 //                    var output = document.getElementById("wrapper");
 //                    console.dir(window);

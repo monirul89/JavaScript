@@ -16,6 +16,7 @@ body{
 
 .maincontent{
     height: 300px;
+    overflow: auto
 }
 #showDiv{
     border-bottom: 1px solid #ccc;
