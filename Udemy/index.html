@@ -21,15 +21,20 @@
 					Page 1
 				</div>
 				<form action="">
-					<selec onchange="imgU()">
+					<select onchange="imgU()">
+						<option value="">Select</option>
 						<option value="150x50">Small</option>
 						<option value="350x50">Medium</option>
-						<option value="750x50">Medium</option>
-					</selec>
+						<option value="750x50">Large</option>
+					</select>
 				</form>
-				
+				<img src="img/images1.jpg" id="myImages" alt="myImages" />
 				<script type="application/javascript">
 					
+					function imgU(){
+						console.dir(event.target);
+						console.dir(event.target.value);
+					}
 					
 //					function cFun(){
 //						var P= event.target;
