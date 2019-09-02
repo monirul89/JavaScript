@@ -21,16 +21,35 @@
 					Page 1
 				</div>
 				<form action="">
-					First Name : <input type="text" id="e1" value="laurence"><br>
-					Last Name : <input type="text" id="e2" value="Svekis"><br>
-					<input type="button" onclick="sendInfo()" value="Submit"><br>
+					<selec onchange="imgU()">
+						<option value="150x50">Small</option>
+						<option value="350x50">Medium</option>
+						<option value="750x50">Medium</option>
+					</selec>
 				</form>
-
+				
 				<script type="application/javascript">
-
-					function sendInfo(){
-						console.log("hello");
-					}
+					
+					
+//					function cFun(){
+//						var P= event.target;
+//						
+//						if(P.name=="e1"){
+//							message("First Name Changed to "+P.value);
+//						}else{
+//							message("Last Name Changed to "+P.value);
+//						}
+//					}
+//					function sendInfo(){
+//						var P= event.target.parentElement;
+//						message("Welcome "+P.e1.value+" "+P.e2.value);
+//					}
+//					
+//					function message(m){
+//						document.getElementById("wrapper").innerHTML = m;
+//					}
+					
+					
 
 					//					var output = document.getElementById("wrapper");
 					//					
