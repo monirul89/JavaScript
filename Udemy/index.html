@@ -18,70 +18,78 @@
 			<section class="maincontent">
 
 				<div id="wrapper">
-					page 1
+					Page 1
 				</div>
-				<img width="200" height="100" src="img/images2.jpg" alt="" id="imgSwap" onmouseover="cImg(this)" onmouseout="bImg(this)">
-				
+				<form action="">
+					First Name : <input type="text" id="e1" value="laurence"><br>
+					Last Name : <input type="text" id="e2" value="Svekis"><br>
+					<input type="button" onclick="sendInfo()" value="Submit"><br>
+				</form>
+
 				<script type="application/javascript">
-					
-					var output = document.getElementById("wrapper");
-					
-					var imgHolder = "img/images2.jpg";
-					window.onload = function(){
-						document.getElementById("imgSwap").src = imgHolder;
+
+					function sendInfo(){
+						console.log("hello");
 					}
-					
-					function cImg(t){
-						message(t.src);
-						imgHolder = t.src;
-						
-						t.src = "img/images1.jpg";
-					}
-					
-					function bImg(t){
-						t.src = imgHolder;
-					}
-					
-					function message(m){
-						output.innerHTML = m;
-					}
-					
-//					window.onload = function (event){
-//						myFun('WINDOW;')
-//					}
-//					function myFun(a){
-//						output.innerHTML = "WELCOME ALL LOADED "+a;
-//					}
-//					
-					
-//					document.getElementById("id1").onclick = myFun;
-//					
-//					
-//					
-//					function myFun(){
-//						console.dir(this);
-//						this.value = "CLICKED";
-//						output.innerHTML = "WORKED";
-//					}
-					
-					
-//					function myFun(t){
-//						console.dir(t);
-//						output.innerHTML = t.value;
-//						t.value = "CLICKED";
-//					}
-					
-//					function goUrl(){
-//						var url = document.getElementById("url").value;
-//						window.location = url;
-//					}
-//					function myValue(){
-//						document.getElementById("wrapper").innerHTML = document.myForm.url.value;
-//					}
-//
-//					function goUrl2(url){
-//						window.location = url;
-//					}
+
+					//					var output = document.getElementById("wrapper");
+					//					
+					//					var imgHolder = "img/images2.jpg";
+					//					window.onload = function(){
+					//						document.getElementById("imgSwap").src = imgHolder;
+					//					}
+					//					
+					//					function cImg(t){
+					//						message(t.src);
+					//						imgHolder = t.src;
+					//						
+					//						t.src = "img/images1.jpg";
+					//					}
+					//					
+					//					function bImg(t){
+					//						t.src = imgHolder;
+					//					}
+					//					
+					//					function message(m){
+					//						output.innerHTML = m;
+					//					}
+
+					//					window.onload = function (event){
+					//						myFun('WINDOW;')
+					//					}
+					//					function myFun(a){
+					//						output.innerHTML = "WELCOME ALL LOADED "+a;
+					//					}
+					//					
+
+					//					document.getElementById("id1").onclick = myFun;
+					//					
+					//					
+					//					
+					//					function myFun(){
+					//						console.dir(this);
+					//						this.value = "CLICKED";
+					//						output.innerHTML = "WORKED";
+					//					}
+
+
+					//					function myFun(t){
+					//						console.dir(t);
+					//						output.innerHTML = t.value;
+					//						t.value = "CLICKED";
+					//					}
+
+					//					function goUrl(){
+					//						var url = document.getElementById("url").value;
+					//						window.location = url;
+					//					}
+					//					function myValue(){
+					//						document.getElementById("wrapper").innerHTML = document.myForm.url.value;
+					//					}
+					//
+					//					function goUrl2(url){
+					//						window.location = url;
+					//					}
 
 					//					output.innerHTML = navigator.userActivation;
 					//					window.setTimeout(updateWrapper,5000);
