@@ -20,21 +20,28 @@
 				<div id="wrapper">
 					Page 1
 				</div>
-				<form action="">
-					<select onchange="imgU()">
-						<option value="">Select</option>
-						<option value="150x50">Small</option>
-						<option value="350x50">Medium</option>
-						<option value="750x50">Large</option>
-					</select>
+				<form name="mhyForm">
+					<input type="url" id="url" name="url">
+					<input type="text" id="first" name="first">
+					<input type="text" id="last" name="last">
+					<textarea id="output" name="output"></textarea>
+					<div id="another">Parent
+						<div id="one">Test 1</div>
+						<div id="two">Test 2</div>
+						<div id="three">Test 3</div>
+						<div id="four">Test 4</div>
+						<div id="five">Test 5</div>
+						<div id="six">Test 6</div>
+					</div>
+					<input id="btn1" onclick="myFun1()" value="Click Here">
 				</form>
-				<img src="img/images1.jpg" id="myImages" alt="myImages" />
+				
 				<script type="application/javascript">
 
-					function imgU(){
-						console.dir(event.target);
-						console.dir(event.target.value);
-					}
+//					function imgU(){
+//						console.dir(event.target);
+//						console.dir(event.target.value);
+//					}
 
 					//					function cFun(){
 					//						var P= event.target;
