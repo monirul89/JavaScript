@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="main.css" type="text/css" />
 	</head>
 	<body>
-		<section class="content">
+		<section id="content" class="content">
 
 			<header class="header">
 				<h2>
@@ -17,31 +17,27 @@
 			</header>
 			<section class="maincontent">
 
-				<div id="wrapper">
-					Page 1
+				<div id="message">
+					Complete JavaScript Cource
 				</div>
-				<form name="mhyForm">
-					<input type="url" id="url" name="url">
-					<input type="text" id="first" name="first">
-					<input type="text" id="last" name="last">
-					<textarea id="output" name="output"></textarea>
-					<div id="another">Parent
-						<div id="one">Test 1</div>
-						<div id="two">Test 2</div>
-						<div id="three">Test 3</div>
-						<div id="four">Test 4</div>
-						<div id="five">Test 5</div>
-						<div id="six">Test 6</div>
-					</div>
-					<input id="btn1" onclick="myFun1()" value="Click Here">
-				</form>
-				
-				<script type="application/javascript">
+				<input type="button" value="pop" onclick="popup()">
 
-//					function imgU(){
-//						console.dir(event.target);
-//						console.dir(event.target.value);
-//					}
+				<script type="application/javascript">
+					
+					function popup(){
+						var url = 'index.html';
+						window.open(url,"_blank","top=0, left=300, width=200,height=200");
+					}
+					
+//					var message = document.getElementById("message");
+//					var message1 = document.getElementById("message1");
+//
+//					
+//					var el = document.querySelector("#pickme .output");
+					//					function imgU(){
+					//						console.dir(event.target);
+					//						console.dir(event.target.value);
+					//					}
 
 					//					function cFun(){
 					//						var P= event.target;
