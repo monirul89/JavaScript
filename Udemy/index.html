@@ -16,24 +16,39 @@
 				</h2>
 			</header>
 			<section class="maincontent">
-
+				Score:<span class="score">0</span>
 				<div id="message">Complete Cource</div>
+				<input type="button" onclick="start()" value="Start Game">
+				<div class="gameboard"></div>
 				<script type="application/javascript">
-					
-					
 
-//					function testMe(){
-//						var x = 500;
-//						try{
-//							if(x>100){throw "Yes its greater than 100"}
-//							if(x<100){throw "Yes its less than 100"}
-//							console(x);
-//						}
-//						catch(e){
-//							document.getElementById("message").innerHTML = e.message;
-//							console.log(e);
-//						}
-//					}
+					window.onload = build;
+
+					function build(){
+						var html = "<h1>Hit the computer</h1>";
+						for (var x=0; x<6; x++){
+							html +='<div class="office"><div class="desk"></div><div class="computer"></div></div>';
+						}
+						document.querySelector('.gameboard').innerHTML = html;
+					}
+
+					function start(){
+
+					}
+
+
+					//					function testMe(){
+					//						var x = 500;
+					//						try{
+					//							if(x>100){throw "Yes its greater than 100"}
+					//							if(x<100){throw "Yes its less than 100"}
+					//							console(x);
+					//						}
+					//						catch(e){
+					//							document.getElementById("message").innerHTML = e.message;
+					//							console.log(e);
+					//						}
+					//					}
 
 
 					//					var cDate, eDate, s, m, h, d;
