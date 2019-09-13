@@ -17,86 +17,126 @@
 			</header>
 			<section class="maincontent">
 
-				<div id="message"> Complete JavaScript Cource </div>
-
+				<div id="message">Complete Cource</div>
 				<script type="application/javascript">
-//					var message = document.getElementById("message");
-//					
-//					var d = new Date();
-////					var d = new Date("April,10, 2010");
-//					var t=d.getTime();
-//					message.innerHTML +="<br>"+d+"<br>"+t; 
 					
 					
-//					var m = Math.PI;
-//					
-//					var rNum = Math.ceil(Math.random()*99);
-					
-//					var message = document.getElementById("message");
-//					
-//					var myArr = ["javaScript", "hello", "world", "cource"];
-//					
-//					window.onload = sWord;
-//					
-//					var randomWord;
-//					
-//					function sWord(){
-//						
-//						var w = myArr[Math.floor(Math.random()*myArr.length)];
-//						randomWord = w;
-//						w = w.toLowerCase();
-//						var s="";
-//						var wLength = w.length;
-//						
-//						for(var x= 0; x<w.length; x++){
-//							var i=Math.floor(Math.random()*w.length);
-//							s+=w[i];
-//							w=w.substr(0,i)+w.substr(i+1);
+
+//					function testMe(){
+//						var x = 500;
+//						try{
+//							if(x>100){throw "Yes its greater than 100"}
+//							if(x<100){throw "Yes its less than 100"}
+//							console(x);
 //						}
-//						message.innerHTML = s;
-//						//random item from the array
-//						//output the word
-//					}
-//					function rGuess(){
-//						var guess = document.getElementById("myString").value;
-//						if(guess==randomWord){
-//							message.innerHTML = "Correct";
-//						}else{
-//							message.innerHTML = "Wrong It was"+randomWord;
+//						catch(e){
+//							document.getElementById("message").innerHTML = e.message;
+//							console.log(e);
 //						}
-//						
-//						sWord();
-//						//check to see if correct
 //					}
-					
-					
-//					var a = "world hello";
-//					var b = new String("Hello World");
-//					
-//					var message = document.getElementById("message");
-//					var holder = "JavaScript";
-//					
-//					function rHeading(){
-//						
-//						var m = document.getElementById("myString").value;
-//						var c = message.innerText;
-//						console.log(c);
-//						c = c.replace(holder, m);
-//						holder = m;
-//						message.innerText = c;
-//					}
-					
-//					function popup(){
-//						var url = 'index.html';
-//						var opt = "top=0, left=300, width=200,height=200";
-//						window.open(url,"_self",opt);
-//					}
-					
-//					var message = document.getElementById("message");
-//					var message1 = document.getElementById("message1");
-//
-//					
-//					var el = document.querySelector("#pickme .output");
+
+
+					//					var cDate, eDate, s, m, h, d;
+					//					var output = document.getElementById("output");
+					//					
+					//					function start(){
+					//						var tDate = event.target.valueAsDate;
+					//						message.innerHTML = tDate;
+					//						cDate = new Date();
+					//						eDate = new Date(tDate);
+					//						s = (eDate-cDate)/1000;
+					//						t = window.setTimeout(update, 1000);
+					//					}
+					//					
+					//					function update(){
+					//						cDate = new Date();
+					//						s = (eDate-cDate)/1000;
+					//						outputUpdate();
+					//						
+					//						t=window.setTimeout(update, 1000);
+					//					}
+					//					function outputUpdate(){
+					//						output.innerHTML = s;
+					//					}
+
+
+					//					var message = document.getElementById("message");
+					//					
+					//					var d = new Date();
+					////					var d = new Date("April,10, 2010");
+					//					var t=d.getTime();
+					//					message.innerHTML +="<br>"+d+"<br>"+t; 
+
+
+					//					var m = Math.PI;
+					//					
+					//					var rNum = Math.ceil(Math.random()*99);
+
+					//					var message = document.getElementById("message");
+					//					
+					//					var myArr = ["javaScript", "hello", "world", "cource"];
+					//					
+					//					window.onload = sWord;
+					//					
+					//					var randomWord;
+					//					
+					//					function sWord(){
+					//						
+					//						var w = myArr[Math.floor(Math.random()*myArr.length)];
+					//						randomWord = w;
+					//						w = w.toLowerCase();
+					//						var s="";
+					//						var wLength = w.length;
+					//						
+					//						for(var x= 0; x<w.length; x++){
+					//							var i=Math.floor(Math.random()*w.length);
+					//							s+=w[i];
+					//							w=w.substr(0,i)+w.substr(i+1);
+					//						}
+					//						message.innerHTML = s;
+					//						//random item from the array
+					//						//output the word
+					//					}
+					//					function rGuess(){
+					//						var guess = document.getElementById("myString").value;
+					//						if(guess==randomWord){
+					//							message.innerHTML = "Correct";
+					//						}else{
+					//							message.innerHTML = "Wrong It was"+randomWord;
+					//						}
+					//						
+					//						sWord();
+					//						//check to see if correct
+					//					}
+
+
+					//					var a = "world hello";
+					//					var b = new String("Hello World");
+					//					
+					//					var message = document.getElementById("message");
+					//					var holder = "JavaScript";
+					//					
+					//					function rHeading(){
+					//						
+					//						var m = document.getElementById("myString").value;
+					//						var c = message.innerText;
+					//						console.log(c);
+					//						c = c.replace(holder, m);
+					//						holder = m;
+					//						message.innerText = c;
+					//					}
+
+					//					function popup(){
+					//						var url = 'index.html';
+					//						var opt = "top=0, left=300, width=200,height=200";
+					//						window.open(url,"_self",opt);
+					//					}
+
+					//					var message = document.getElementById("message");
+					//					var message1 = document.getElementById("message1");
+					//
+					//					
+					//					var el = document.querySelector("#pickme .output");
 					//					function imgU(){
 					//						console.dir(event.target);
 					//						console.dir(event.target.value);
