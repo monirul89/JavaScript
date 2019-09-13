@@ -17,18 +17,71 @@
 			</header>
 			<section class="maincontent">
 
-				<div id="message">
-					Complete JavaScript Cource
-				</div>
-				<input type="button" value="pop" onclick="popup()">
+				<div id="message"> Complete JavaScript Cource </div>
+				<input type="text" id="myString">
+				<input type="button" value="Guess" onclick="rGuess()">
 
 				<script type="application/javascript">
 					
-					function popup(){
-						var url = 'index.html';
-						var opt = "top=0, left=300, width=200,height=200";
-						window.open(url,"_self",opt);
-					}
+//					var message = document.getElementById("message");
+//					
+//					var myArr = ["javaScript", "hello", "world", "cource"];
+//					
+//					window.onload = sWord;
+//					
+//					var randomWord;
+//					
+//					function sWord(){
+//						
+//						var w = myArr[Math.floor(Math.random()*myArr.length)];
+//						randomWord = w;
+//						w = w.toLowerCase();
+//						var s="";
+//						var wLength = w.length;
+//						
+//						for(var x= 0; x<w.length; x++){
+//							var i=Math.floor(Math.random()*w.length);
+//							s+=w[i];
+//							w=w.substr(0,i)+w.substr(i+1);
+//						}
+//						message.innerHTML = s;
+//						//random item from the array
+//						//output the word
+//					}
+//					function rGuess(){
+//						var guess = document.getElementById("myString").value;
+//						if(guess==randomWord){
+//							message.innerHTML = "Correct";
+//						}else{
+//							message.innerHTML = "Wrong It was"+randomWord;
+//						}
+//						
+//						sWord();
+//						//check to see if correct
+//					}
+					
+					
+//					var a = "world hello";
+//					var b = new String("Hello World");
+//					
+//					var message = document.getElementById("message");
+//					var holder = "JavaScript";
+//					
+//					function rHeading(){
+//						
+//						var m = document.getElementById("myString").value;
+//						var c = message.innerText;
+//						console.log(c);
+//						c = c.replace(holder, m);
+//						holder = m;
+//						message.innerText = c;
+//					}
+					
+//					function popup(){
+//						var url = 'index.html';
+//						var opt = "top=0, left=300, width=200,height=200";
+//						window.open(url,"_self",opt);
+//					}
 					
 //					var message = document.getElementById("message");
 //					var message1 = document.getElementById("message1");
