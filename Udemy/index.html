@@ -20,9 +20,28 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">Complete javaScript Cource</div>
-
+				Search for : <input type="text" id="sText"><br>
+				Replace with :<input type="text" id="rText"><br>
+				
+				<input type="button" onclick="lookUp()" value="Find text">
 
 				<script type="application/javascript">
+				
+					function lookUp(){
+						var s = document.getElementById("output").innerText;
+						var st = document.getElementById("sText").value;
+						var rt = document.getElementById("rText").value;
+						var re = new RegExp(st, "gi");
+						console.log(re);
+					}
+					
+					
+					
+					
+					
+					
+					
+					
 
 //					var output = document.getElementById("output");
 //					var str = "abasdn skjkj eqwj k JavaScript adsjkj asllk 123432 43453 321 3 34 javascript 432 433 JavaScript 342 JavaScript4121";
