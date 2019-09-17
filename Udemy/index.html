@@ -3,7 +3,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>JavaScript</title>
-		<link rel="stylesheet" href="main.css" type="text/css" />
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="css/main.css" type="text/css" />
+
 	</head>
 	<body>
 		<section id="content" class="content">
@@ -16,25 +18,23 @@
 				</h2>
 			</header>
 			<section class="maincontent">
-				Score:<span class="score">0</span>
-				<div id="message">Complete Cource</div>
-				<input type="button" onclick="start()" value="Start Game">
-				<div class="gameboard"></div>
+
+				<div id="output" class="text-center">Complete javaScript Cource</div>
 				<script type="application/javascript">
 
-					window.onload = build;
-
-					function build(){
-						var html = "<h1>Hit the computer</h1>";
-						for (var x=0; x<6; x++){
-							html +='<div class="office"><div class="desk"></div><div class="computer"></div></div>';
-						}
-						document.querySelector('.gameboard').innerHTML = html;
-					}
-
-					function start(){
-
-					}
+					//					window.onload = build;
+					//
+					//					function build(){
+					//						var html = "<h1>Hit the computer</h1>";
+					//						for (var x=0; x<6; x++){
+					//							html +='<div class="office"><div class="desk"></div><div class="computer"></div></div>';
+					//						}
+					//						document.querySelector('.gameboard').innerHTML = html;
+					//					}
+					//
+					//					function start(){
+					//
+					//					}
 
 
 					//					function testMe(){
@@ -438,4 +438,7 @@
 
 		</section>
 	</body>
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+
 </html>
