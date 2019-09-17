@@ -20,87 +20,95 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">Complete javaScript Cource</div>
-				Search for : <input type="text" id="sText"><br>
-				Replace with :<input type="text" id="rText"><br>
 				
-				<input type="button" onclick="lookUp()" value="Find text">
+				<form name="myForm">
+					<textarea rows="12" cols="62" id="textarea"></textarea><br>
 
+					<input type="button" onclick="lookUp()" value="get emails">
+				</form>
+				
 				<script type="application/javascript">
-				
-//					function lookUp(){
-//						var s = document.getElementById("output").innerText;
-//						var st = document.getElementById("sText").value;
-//						var rt = document.getElementById("rText").value;
-//						var re = new RegExp(st, "gi");
-//						console.log(re);
-//						var result = s.match(re);
-//						if(result){
-//							var rr = s.replace(re,rt);
-//							document.getElementById("output").innerText = rr;
-//						}
-//						console.log(result);
-//					}
-					
-					
-					
-					
-					
-					
-					
-					
 
-//					var output = document.getElementById("output");
-//					var str = "abasdn skjkj eqwj k JavaScript adsjkj asllk 123432 43453 321 3 34 javascript 432 433 JavaScript 342 JavaScript4121";
-//
-//					function cEmail(e){
-//						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-//						var r = e.match(p);
-//
-//						var t = r == null ? false : true;
-//
-//						return t;
-//					}
-//					function cNumn(e){
-//
-//					}
-//					function cCha(e){
-//
-//					}
-//
-//
-//
-//
-//
-//
-//					function myFun(){
-//						var i = document.getElementsByTagName("input");
-//						for (var x=0; x<i.length; x++){
-////							console.log(i[x]);
-////							if(i[x].type=="text"){
-////
-////								if(i[x].id == "email"){
-////									if(cEmail(i[x].value)){
-////										console.log("Email Valid");
-////									}
-////								}
-////								if(i[x].id == "num"){
-////
-////								}
-////								if(i[x].id == "cha"){
-////
-////								}
-////
-////
-////							}
-//						}
-//						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-//						var r = i.match(p);
-//
-//						var t = r == null ? false : true;
-//
-//						return t;
-//
-//					}
+					function lookUp(){
+						var rawText = document.myForm.textarea.value;
+						var eData = rawText.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+						console.log(eData);
+					}
+
+					//					function lookUp(){
+					//						var s = document.getElementById("output").innerText;
+					//						var st = document.getElementById("sText").value;
+					//						var rt = document.getElementById("rText").value;
+					//						var re = new RegExp(st, "gi");
+					//						console.log(re);
+					//						var result = s.match(re);
+					//						if(result){
+					//							var rr = s.replace(re,rt);
+					//							document.getElementById("output").innerText = rr;
+					//						}
+					//						console.log(result);
+					//					}
+
+
+
+
+
+
+
+
+
+					//					var output = document.getElementById("output");
+					//					var str = "abasdn skjkj eqwj k JavaScript adsjkj asllk 123432 43453 321 3 34 javascript 432 433 JavaScript 342 JavaScript4121";
+					//
+					//					function cEmail(e){
+					//						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+					//						var r = e.match(p);
+					//
+					//						var t = r == null ? false : true;
+					//
+					//						return t;
+					//					}
+					//					function cNumn(e){
+					//
+					//					}
+					//					function cCha(e){
+					//
+					//					}
+					//
+					//
+					//
+					//
+					//
+					//
+					//					function myFun(){
+					//						var i = document.getElementsByTagName("input");
+					//						for (var x=0; x<i.length; x++){
+					////							console.log(i[x]);
+					////							if(i[x].type=="text"){
+					////
+					////								if(i[x].id == "email"){
+					////									if(cEmail(i[x].value)){
+					////										console.log("Email Valid");
+					////									}
+					////								}
+					////								if(i[x].id == "num"){
+					////
+					////								}
+					////								if(i[x].id == "cha"){
+					////
+					////								}
+					////
+					////
+					////							}
+					//						}
+					//						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+					//						var r = i.match(p);
+					//
+					//						var t = r == null ? false : true;
+					//
+					//						return t;
+					//
+					//					}
 
 
 					//					var output = document.getElementById("output");
