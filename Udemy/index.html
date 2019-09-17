@@ -20,8 +20,41 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">Complete javaScript Cource</div>
+				<input type="button" onclick="myFun()" value="Validate Email">
+				<input type="text" id="email" value="email@gmail.com">
+				
 				<script type="application/javascript">
-
+					
+					var output = document.getElementById("output");
+					var str = "abasdn skjkj eqwj k JavaScript adsjkj asllk 123432 43453 321 3 34 javascript 432 433 JavaScript 342 JavaScript4121";
+					
+					
+					function myFun(){
+						var email = document.getElementById("email").value;
+						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+						var r = email.match(p);
+						
+						var t = r == null ? false : true;
+						console.log(t);
+						return t;
+						
+					}
+					
+					
+//					var output = document.getElementById("output");
+//					var str = "abasdn skjkj eqwj k JavaScript adsjkj asllk 123432 43453 321 3 34 javascript 432 433 JavaScript 342 JavaScript4121";
+//					
+//					
+//					function myFun(){
+//						var email = document.getElementById("email").value;
+//						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+//						var r = email.match(p);
+//						
+//						var t = r == null ? false : true;
+//						console.log(t);
+//						return t;
+//						
+//					}
 					//					window.onload = build;
 					//
 					//					function build(){
