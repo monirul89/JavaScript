@@ -20,103 +20,160 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">Complete javaScript Cource</div>
-				
 
+				<div id="wrapper">
+					<div id="start" class="btn">Start</div>
+					<div id="score"></div>
+					<div id="message"></div>
+					<div id="gameboard"></div>
+				</div>
 				<script type="application/javascript">
 					
 					
 					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-//					var a ="hello";
-//					if(a="helloworld"){
-//						console.log("works");
-//					}
-					
-//					"use strict"
-//					
-//					myFun();
-//					
-//					console.log(a);
-//					
-//					function myFun(){
-//						a = "Hello World";
-//					}
-					
-					
-					
-//					console.log(a);
-//					
-//					(function(){
-//						console.log(b);
-//						var b = "B is great";
-//					})();
-//					var a = "Hellow world";
-					
-					
-					
-					
-//					var myArr = ["Laurence", "Mike", "Lrry"];
-//					function showNames(){
-//						console.log(arguments);
-//						console.log(arguments[0]);
-//					}
-//					showNames(myArr, "JavaScript");
-					
-					
-//					(function(){
-//						var message = "Hello World";
-//						document.getElementById("output").innerHTML = message;
-//					})();
-					
-//					function cCookie(name, value, days){
-//						var e = "";
-//						if(days){
-//							var d = new Date();
-//							d.setTime(d.getTime()+(days*24*60*60*1000));
-//							e = "; expires="+d.toUTCString();
-//						}
-//						document.cookie = name + "=" + value + e +";path=/";
-//					}
-//					
-//					function rCookie(name){
-//						var p = name + "=";
-//						var c = document.cookie.split(";");
-//						console.log(c);
-//						
-//						for(var x=0; x<c.length; x++){
-//							
-////							var t = c[x].charAt(0)==" " ? c[x].substring(1) :c[x];
-////							var t = c[x].trim();
-//							var t = c[x].replace(/[^\s*].*[^\s*]/g);
-//							console.log(t);
-//							
+
+//					var playLockout = false;
+//					var gamePlay = false;
+//					var tileImages=[];
+//					var tileArray=[];
+//					var tileFlippedOver=[];
+//
+//
+//
+//					var sb=document.getElementById("start");
+//					var message=document.getElementById("message");
+//					var score = document.getElementById("score");
+//					var gameBoard = document.getElementById("gameboard");
+//
+//
+//					sb.addEventListener("click", startGame);
+//
+//					function startGame(){
+//						//hide start button
+//						sb.style.display="none";
+//
+//						message.innerHTML = "Its working "+ gamePlay;
+//						if(!gamePlay){
+//							gamePlay = true;
+//							buildArray();
+////							tileArray= tileImages.concat(tileImages);
+//							shuffleArray(tileArray);
+//							console.log("1.jpg");
+//							//buildboard
+//
 //						}
 //					}
-//					
-//					var myCookie = rCookie("test");
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
+//
+//					function buildArray(){
+//						for(var x=1; x<7; x++){
+//							var b = tileArray.push(x+".jpg");
+//							console.log(b+".jpg");
+//						}
+//					}
+//
+//					function shuffleArray(array){
+//						for(var x=array.length-1; x>0; x--){
+//
+//							var holder = Math.floor(Math.random()*(x+1))
+//							var itemValue = array[x];
+//							array[x] = array[holder];
+//							array[holder] = itemValue;
+//
+//						}
+//						return array;
+//					}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					//					var a ="hello";
+					//					if(a="helloworld"){
+					//						console.log("works");
+					//					}
+
+					//					"use strict"
+					//					
+					//					myFun();
+					//					
+					//					console.log(a);
+					//					
+					//					function myFun(){
+					//						a = "Hello World";
+					//					}
+
+
+
+					//					console.log(a);
+					//					
+					//					(function(){
+					//						console.log(b);
+					//						var b = "B is great";
+					//					})();
+					//					var a = "Hellow world";
+
+
+
+
+					//					var myArr = ["Laurence", "Mike", "Lrry"];
+					//					function showNames(){
+					//						console.log(arguments);
+					//						console.log(arguments[0]);
+					//					}
+					//					showNames(myArr, "JavaScript");
+
+
+					//					(function(){
+					//						var message = "Hello World";
+					//						document.getElementById("output").innerHTML = message;
+					//					})();
+
+					//					function cCookie(name, value, days){
+					//						var e = "";
+					//						if(days){
+					//							var d = new Date();
+					//							d.setTime(d.getTime()+(days*24*60*60*1000));
+					//							e = "; expires="+d.toUTCString();
+					//						}
+					//						document.cookie = name + "=" + value + e +";path=/";
+					//					}
+					//					
+					//					function rCookie(name){
+					//						var p = name + "=";
+					//						var c = document.cookie.split(";");
+					//						console.log(c);
+					//						
+					//						for(var x=0; x<c.length; x++){
+					//							
+					////							var t = c[x].charAt(0)==" " ? c[x].substring(1) :c[x];
+					////							var t = c[x].trim();
+					//							var t = c[x].replace(/[^\s*].*[^\s*]/g);
+					//							console.log(t);
+					//							
+					//						}
+					//					}
+					//					
+					//					var myCookie = rCookie("test");
+
+
+
+
+
+
+
+
+
+
 
 					//					function lookUp(){
 					//						var rawText = document.myForm.textarea.value;
