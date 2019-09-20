@@ -21,10 +21,33 @@
 
 				<div id="output" class="text-center">Complete javaScript Cource</div>
 
-				<div id="map"></div>
-				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVhwycpTxH6IRvk0Oa3S7vUcTr5QapEtM"></script>
 
 				<script type="application/javascript">
+					
+//					localStorage counter
+					
+					var message = "hello world ";
+					
+					if(localStorage.getItem("test1")){
+						document.getElementById("output").innerHTML = 
+							localStorage.getItem("test1");
+					}
+					
+					if(localStorage.getItem("count")){
+						var cnt = Number(localStorage.getItem("count"))+1;
+						localStorage.setItem("count",cnt);
+						document.getElementById("output").innerHTML +=cnt;
+						
+					}else{
+						localStorage.setItem("count", 0);
+					}
+					
+					
+					
+					
+					
+					
+					
 					//
 					//					//getCurrentPosition
 //					script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVhwycpTxH6IRvk0Oa3S7vUcTr5QapEtM"
