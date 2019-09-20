@@ -78,3 +78,7 @@ body{
 .gameTile{
 	display: inline-block;
 }
+#map{
+	height: 100%;
+	
+}
