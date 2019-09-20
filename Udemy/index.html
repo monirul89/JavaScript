@@ -20,64 +20,76 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">Complete javaScript Cource</div>
-				<input type="file" multiple="" onchange="upFiles(this.file)" />
-				<div id="messages"></div>
-				
-				<script type="application/javascript">
-					
-					
-					
+				<input type="file" multiple onchange="upFiles(this.files)" />
+				<div id="message"></div>
 
-//					var playLockout = false;
-//					var gamePlay = false;
-//					var tileImages=[];
-//					var tileArray=[];
-//					var tileFlippedOver=[];
-//
-//
-//
-//					var sb=document.getElementById("start");
-//					var message=document.getElementById("message");
-//					var score = document.getElementById("score");
-//					var gameBoard = document.getElementById("gameboard");
-//
-//
-//					sb.addEventListener("click", startGame);
-//
-//					function startGame(){
-//						//hide start button
-//						sb.style.display="none";
-//
-//						message.innerHTML = "Its working "+ gamePlay;
-//						if(!gamePlay){
-//							gamePlay = true;
-//							buildArray();
-////							tileArray= tileImages.concat(tileImages);
-//							shuffleArray(tileArray);
-//							console.log("1.jpg");
-//							//buildboard
-//
-//						}
-//					}
-//
-//					function buildArray(){
-//						for(var x=1; x<7; x++){
-//							var b = tileArray.push(x+".jpg");
-//							console.log(b+".jpg");
-//						}
-//					}
-//
-//					function shuffleArray(array){
-//						for(var x=array.length-1; x>0; x--){
-//
-//							var holder = Math.floor(Math.random()*(x+1))
-//							var itemValue = array[x];
-//							array[x] = array[holder];
-//							array[holder] = itemValue;
-//
-//						}
-//						return array;
-//					}
+				<script type="application/javascript">
+					var message = document.getElementById("message");
+
+					if(window.FileReader){
+						message.innerHTML = "file reader is available";
+					}else{
+						message.innerHTML = "file reader is not available";
+					}
+
+					function upFiles(files){
+						
+						for(var x=0; x<files.length; x++){
+							message.innerHTML +="<br>"+files[x].name;
+							console.log(files);
+						}
+					}
+
+					//					var playLockout = false;
+					//					var gamePlay = false;
+					//					var tileImages=[];
+					//					var tileArray=[];
+					//					var tileFlippedOver=[];
+					//
+					//
+					//
+					//					var sb=document.getElementById("start");
+					//					var message=document.getElementById("message");
+					//					var score = document.getElementById("score");
+					//					var gameBoard = document.getElementById("gameboard");
+					//
+					//
+					//					sb.addEventListener("click", startGame);
+					//
+					//					function startGame(){
+					//						//hide start button
+					//						sb.style.display="none";
+					//
+					//						message.innerHTML = "Its working "+ gamePlay;
+					//						if(!gamePlay){
+					//							gamePlay = true;
+					//							buildArray();
+					////							tileArray= tileImages.concat(tileImages);
+					//							shuffleArray(tileArray);
+					//							console.log("1.jpg");
+					//							//buildboard
+					//
+					//						}
+					//					}
+					//
+					//					function buildArray(){
+					//						for(var x=1; x<7; x++){
+					//							var b = tileArray.push(x+".jpg");
+					//							console.log(b+".jpg");
+					//						}
+					//					}
+					//
+					//					function shuffleArray(array){
+					//						for(var x=array.length-1; x>0; x--){
+					//
+					//							var holder = Math.floor(Math.random()*(x+1))
+					//							var itemValue = array[x];
+					//							array[x] = array[holder];
+					//							array[holder] = itemValue;
+					//
+					//						}
+					//						return array;
+					//					}
 
 
 
@@ -682,8 +694,8 @@
 			</footer>
 
 		</section>
-	
-	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-</body>
+
+		<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+	</body>
 </html>
