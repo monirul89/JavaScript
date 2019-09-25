@@ -23,34 +23,124 @@
 
 
 				<script type="application/javascript">
+
+					var items=[
+						{
+							name:"iPhone",
+							details:"White",
+							cost:500
+						},
+						{
+							name:"iPod",
+							details:"White",
+							cost:800
+						},
+						{
+							name:"cable",
+							details:"3 foot",
+							cost:10
+						}
+						,
+						{
+							name:"Camera",
+							details:"25MP",
+							cost:300
+						}
+						,
+						{
+							name:"Laptop",
+							details:"Intel i7",
+							cost:1200
+						}
+						,
+						{
+							name:"LCD Monitor",
+							details:"24 inch",
+							cost:200
+						}
+						,
+						{
+							name:"TV",
+							details:"50 inch",
+							cost:450
+						}
+						,
+						{
+							name:"cable",
+							details:"3 foot",
+							cost:10
+						}
+						,
+						{
+							name:"cable",
+							details:"3 foot",
+							cost:10
+						}
+
+					];
+
+					var html='<br>';
+					var x=0;
+
+					window.onload = init;
+					function init(){
+						buildItems();
+						var q= document.querySelectorAll(".productItem");
+						for(var x=0; x<q.length; x++){
+							q[x].addEventListener("click", function(e){
+								e.preventDefault();
+								addToCart();
+							})
+						}
+					}
 					
-//					localStorage counter
+					function addToCart(){
+						console.log(event.target.dataset);
+						console.log("Details : "+event.target.dataset.details);
+						
+					}
 					
-//					var message = "hello world ";
-//					
-//					if(localStorage.getItem("test1")){
-//						document.getElementById("output").innerHTML = 
-//							localStorage.getItem("test1");
-//					}
-//					
-//					if(localStorage.getItem("count")){
-//						var cnt = Number(localStorage.getItem("count"))+1;
-//						localStorage.setItem("count",cnt);
-//						document.getElementById("output").innerHTML +=cnt;
-//						
-//					}else{
-//						localStorage.setItem("count", 0);
-//					}
-					
-					
-					
-					
-					
-					
-					
+					function buildItems(){
+						var x=0;
+						items.forEach(function(v){
+							html +="<div class='item'><h3>"+v.name+"</h3><img src='https://via.placeholder.com/250x150' class='img-fluid'><div>" + v.details + "<a href='#' class='productItem' data-name='"+ v.name +"'data-details='"+ v.details +"'data-price='"+v.cost+"'data-id='"+x+"'> Add to Cart </a></div></div>";
+							x++;
+							console.log(v);
+
+						})
+						document.getElementById("output").innerHTML +=html;
+					}
+
+
+
+
+					//					localStorage counter
+
+					//					var message = "hello world ";
+					//					
+					//					if(localStorage.getItem("test1")){
+					//						document.getElementById("output").innerHTML = 
+					//							localStorage.getItem("test1");
+					//					}
+					//					
+					//					if(localStorage.getItem("count")){
+					//						var cnt = Number(localStorage.getItem("count"))+1;
+					//						localStorage.setItem("count",cnt);
+					//						document.getElementById("output").innerHTML +=cnt;
+					//						
+					//					}else{
+					//						localStorage.setItem("count", 0);
+					//					}
+
+
+
+
+
+
+
 					//
 					//					//getCurrentPosition
-//					script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVhwycpTxH6IRvk0Oa3S7vUcTr5QapEtM"
+					//					script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVhwycpTxH6IRvk0Oa3S7vUcTr5QapEtM"
 					////					AIzaSyBVhwycpTxH6IRvk0Oa3S7vUcTr5QapEtM
 					//					window.onload = init;
 					//					var m = document.getElementById("map");
