@@ -110,3 +110,6 @@ table,th,td{
 table {
 	border-collapse: collapse;
 }
+#canvas1{
+	border: 1px solid #ccc;
+}
