@@ -25,286 +25,287 @@
 
 				<script type="application/javascript">
 
+
+
+					//		********* Shoping cart *************
 					
-					
-//					Shoping cart 
-					var items=[
-						{
-							name:"iPhone",
-							details:"White",
-							cost:5000
-						},
-						{
-							name:"iPod",
-							details:"White",
-							cost:80000
-						},
-						{
-							name:"w cable 6",
-							details:"4 foot",
-							cost:20000
-						}
-						,
-						{
-							name:"Camera",
-							details:"25MP",
-							cost:30000
-						}
-						,
-						{
-							name:"Laptop",
-							details:"Intel i7",
-							cost:12000
-						}
-						,
-						{
-							name:"LCD Monitor",
-							details:"24 inch",
-							cost:20000
-						}
-						,
-						{
-							name:"TV",
-							details:"50 inch",
-							cost:45000
-						}
-						,
-						{
-							name:"Samsung s7",
-							details:"S7",
-							cost:36000
-						}
-						,
-						{
-							name:"cable",
-							details:"3 foot",
-							cost:10800
-						}
-
-					];
-
-					var html='<br>';
-
-					var shopcart=[];
-
-					window.onload = init;
-					function init(){
-						buildItems();
-						var q= document.querySelectorAll(".productItem");
-						for(var x=0; x<q.length; x++){
-							q[x].addEventListener("click", function(e){
-								e.preventDefault();
-								addToCart();
-							})
-						}
-						outputCart();
-					}
-
-					function addToCart(){
-						var iteminfo = event.target.dataset;
-						var itemincart=false;
-						iteminfo.qty = 1;
-						shopcart.forEach(function(v){
-							if(v.id==iteminfo.id){
-								v.qty = parseInt(v.qty)+parseInt(iteminfo.qty);
-								itemincart = true;
-							}
-						});
-						if(!itemincart){
-							shopcart.push(iteminfo);
-						}
-						localStorage.setItem("scart",JSON.stringify(shopcart));
-						outputCart();
-
-
-					}
-					function outputCart(){
-						if(localStorage.getItem("scart")!=null){
-							shopcart = JSON.parse(localStorage.getItem("scart"));
-						}
-						var html = "<table><tr><th>Item</th><th>Quantity</th><th>Cost</th><th>ID</th><th>Subtotal</th><th>Options</th></tr>";
-						var total = 0;
-						shopcart.forEach(function(v){
-							var stotal = v.qty*v.price;
-							total +=stotal;
-							html += "<tr><td>"+v.name+"("+v.details+")</td><td>"+v.qty+"</td><td>"+v.price+"</td><td>"+v.id+"</td><td>"+fMoney(stotal)+"</td><td><span class='remove text-danger bg-danger btn' onclick='remove("+v.id+")'>X</span></td></tr>";
-						});
-						html +="<tr><td colspan='6'>Total = "+fMoney(total)+"</td></tr></table>";
-						document.getElementById("output2").innerHTML = html;
-					}
-
-					function buildItems(){
-						var x=0;
-						items.forEach(function(v){
-							html +="<div class='item'><h3>"+v.name+"</h3><img src='https://via.placeholder.com/250x150' class='img-fluid'><div>" + v.details + "<a href='#' class='productItem' data-name='"+ v.name +"'data-details='"+ v.details +"'data-price='"+v.cost+"'data-id='"+x+"'> Add to Cart </a></div>"+ fMoney(v.cost) +"</div>";
-							x++;
-
-						})
-						document.getElementById("output").innerHTML += html;
-					}
-
-
-					function remove(id){
-
-						for(var x=0; x<shopcart.length; x++){
-							if(shopcart[x].id==id){
-								shopcart.splice(x,1);
-							}
-						}
-						localStorage.setItem("scart",JSON.stringify(shopcart));
-						outputCart();
-					}
-
-
-					function fMoney(n){
-						return "$"+(n/100).toFixed(2);
-					}
+					//					var items=[
+					//						{
+					//							name:"iPhone",
+					//							details:"White",
+					//							cost:5000
+					//						},
+					//						{
+					//							name:"iPod",
+					//							details:"White",
+					//							cost:80000
+					//						},
+					//						{
+					//							name:"w cable 6",
+					//							details:"4 foot",
+					//							cost:20000
+					//						}
+					//						,
+					//						{
+					//							name:"Camera",
+					//							details:"25MP",
+					//							cost:30000
+					//						}
+					//						,
+					//						{
+					//							name:"Laptop",
+					//							details:"Intel i7",
+					//							cost:12000
+					//						}
+					//						,
+					//						{
+					//							name:"LCD Monitor",
+					//							details:"24 inch",
+					//							cost:20000
+					//						}
+					//						,
+					//						{
+					//							name:"TV",
+					//							details:"50 inch",
+					//							cost:45000
+					//						}
+					//						,
+					//						{
+					//							name:"Samsung s7",
+					//							details:"S7",
+					//							cost:36000
+					//						}
+					//						,
+					//						{
+					//							name:"cable",
+					//							details:"3 foot",
+					//							cost:10800
+					//						}
+					//
+					//					];
+					//
+					//					var html='<br>';
+					//
+					//					var shopcart=[];
+					//
+					//					window.onload = init;
+					//					function init(){
+					//						buildItems();
+					//						var q= document.querySelectorAll(".productItem");
+					//						for(var x=0; x<q.length; x++){
+					//							q[x].addEventListener("click", function(e){
+					//								e.preventDefault();
+					//								addToCart();
+					//							})
+					//						}
+					//						outputCart();
+					//					}
+					//
+					//					function addToCart(){
+					//						var iteminfo = event.target.dataset;
+					//						var itemincart=false;
+					//						iteminfo.qty = 1;
+					//						shopcart.forEach(function(v){
+					//							if(v.id==iteminfo.id){
+					//								v.qty = parseInt(v.qty)+parseInt(iteminfo.qty);
+					//								itemincart = true;
+					//							}
+					//						});
+					//						if(!itemincart){
+					//							shopcart.push(iteminfo);
+					//						}
+					//						localStorage.setItem("scart",JSON.stringify(shopcart));
+					//						outputCart();
+					//
+					//
+					//					}
+					//					function outputCart(){
+					//						if(localStorage.getItem("scart")!=null){
+					//							shopcart = JSON.parse(localStorage.getItem("scart"));
+					//						}
+					//						var html = "<table><tr><th>Item</th><th>Quantity</th><th>Cost</th><th>ID</th><th>Subtotal</th><th>Options</th></tr>";
+					//						var total = 0;
+					//						shopcart.forEach(function(v){
+					//							var stotal = v.qty*v.price;
+					//							total +=stotal;
+					//							html += "<tr><td>"+v.name+"("+v.details+")</td><td>"+v.qty+"</td><td>"+v.price+"</td><td>"+v.id+"</td><td>"+fMoney(stotal)+"</td><td><span class='remove text-danger bg-danger btn' onclick='remove("+v.id+")'>X</span></td></tr>";
+					//						});
+					//						html +="<tr><td colspan='6'>Total = "+fMoney(total)+"</td></tr></table>";
+					//						document.getElementById("output2").innerHTML = html;
+					//					}
+					//
+					//					function buildItems(){
+					//						var x=0;
+					//						items.forEach(function(v){
+					//							html +="<div class='item'><h3>"+v.name+"</h3><img src='https://via.placeholder.com/250x150' class='img-fluid'><div>" + v.details + "<a href='#' class='productItem' data-name='"+ v.name +"'data-details='"+ v.details +"'data-price='"+v.cost+"'data-id='"+x+"'> Add to Cart </a></div>"+ fMoney(v.cost) +"</div>";
+					//							x++;
+					//
+					//						})
+					//						document.getElementById("output").innerHTML += html;
+					//					}
+					//
+					//
+					//					function remove(id){
+					//
+					//						for(var x=0; x<shopcart.length; x++){
+					//							if(shopcart[x].id==id){
+					//								shopcart.splice(x,1);
+					//							}
+					//						}
+					//						localStorage.setItem("scart",JSON.stringify(shopcart));
+					//						outputCart();
+					//					}
+					//
+					//
+					//					function fMoney(n){
+					//						return "$"+(n/100).toFixed(2);
+					//					}
 
 					----------------------------------------------------------
 
 
-					//					localStorage counter
-
-					//					var message = "hello world ";
-					//					
-					//					if(localStorage.getItem("test1")){
-					//						document.getElementById("output").innerHTML = 
-					//							localStorage.getItem("test1");
-					//					}
-					//					
-					//					if(localStorage.getItem("count")){
-					//						var cnt = Number(localStorage.getItem("count"))+1;
-					//						localStorage.setItem("count",cnt);
-					//						document.getElementById("output").innerHTML +=cnt;
-					//						
-					//					}else{
-					//						localStorage.setItem("count", 0);
-					//					}
-
-
-
-
-
-
-
-					//
-					//					//getCurrentPosition
-					//					script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVhwycpTxH6IRvk0Oa3S7vUcTr5QapEtM"
-					////					AIzaSyBVhwycpTxH6IRvk0Oa3S7vUcTr5QapEtM
-					//					window.onload = init;
-					//					var m = document.getElementById("map");
-					//					
-					//					function init(){
-					//						navigator.geolocation.getCurrentPosition(placeMap);
-					//					}
-					//
-					//					function placeMap(data){
-					//						var options = {
-					//							center:{
-					//								lat:data.coords.latitude,
-					//								lng:data.coords.longitude
-					//							},
-					//							zoom:12
-					//						}
-					//						var map = new google.maps.Map(m,options);
-					//						console.dir(data);
-					//					}
-					//
-
-
-
-					//getCurrentPosition
-					//					
-					//					
-					//					window.onload = init;
-					//					function init(){
-					//						navigator.geolocation.getCurrentPosition(placeMap);
-					//					}
-					//
-					//					function placeMap(data){
-					//						console.dir(data);
-					//					}
-					//
-					//
-					//
-					//					//file reader
-
-
-					//					input type="file" multiple onchange="upFiles(this.files)"
-					//					div id="message"
-					//					var message = document.getElementById("message");
-					//
-					//					if(window.FileReader){
-					//						message.innerHTML = "file reader is available";
-					//					}else{
-					//						message.innerHTML = "file reader is not available";
-					//					}
-					//
-					//					function upFiles(files){
-					//						
-					//						for(var x=0; x<files.length; x++){
-					//							var fReader = new FileReader();
-					//							var fileName = files[x].name;
-					//							
-					//							fReader.onload = function(e){
-					//								message.innerHTML +="<br>"+fileName;
-					//								message.innerHTML +="<br>"+e.target.result;
-					//							}
-					//							fReader.readAsText(files[x]);
-					//						}
-					//					}
-
-
-					//					var playLockout = false;
-					//					var gamePlay = false;
-					//					var tileImages=[];
-					//					var tileArray=[];
-					//					var tileFlippedOver=[];
-					//
-					//
-					//
-					//					var sb=document.getElementById("start");
-					//					var message=document.getElementById("message");
-					//					var score = document.getElementById("score");
-					//					var gameBoard = document.getElementById("gameboard");
-					//
-					//
-					//					sb.addEventListener("click", startGame);
-					//
-					//					function startGame(){
-					//						//hide start button
-					//						sb.style.display="none";
-					//
-					//						message.innerHTML = "Its working "+ gamePlay;
-					//						if(!gamePlay){
-					//							gamePlay = true;
-					//							buildArray();
-					////							tileArray= tileImages.concat(tileImages);
-					//							shuffleArray(tileArray);
-					//							console.log("1.jpg");
-					//							//buildboard
-					//
-					//						}
-					//					}
-					//
-					//					function buildArray(){
-					//						for(var x=1; x<7; x++){
-					//							var b = tileArray.push(x+".jpg");
-					//							console.log(b+".jpg");
-					//						}
-					//					}
-					//
-					//					function shuffleArray(array){
-					//						for(var x=array.length-1; x>0; x--){
-					//
-					//							var holder = Math.floor(Math.random()*(x+1))
-					//							var itemValue = array[x];
-					//							array[x] = array[holder];
-					//							array[holder] = itemValue;
-					//
-					//						}
-					//						return array;
-					//					}
+						//					localStorage counter
+
+						//					var message = "hello world ";
+						//					
+						//					if(localStorage.getItem("test1")){
+						//						document.getElementById("output").innerHTML = 
+						//							localStorage.getItem("test1");
+						//					}
+						//					
+						//					if(localStorage.getItem("count")){
+						//						var cnt = Number(localStorage.getItem("count"))+1;
+						//						localStorage.setItem("count",cnt);
+						//						document.getElementById("output").innerHTML +=cnt;
+						//						
+						//					}else{
+						//						localStorage.setItem("count", 0);
+						//					}
+
+
+
+
+
+
+
+						//
+						//					//getCurrentPosition
+						//					script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVhwycpTxH6IRvk0Oa3S7vUcTr5QapEtM"
+						////					AIzaSyBVhwycpTxH6IRvk0Oa3S7vUcTr5QapEtM
+						//					window.onload = init;
+						//					var m = document.getElementById("map");
+						//					
+						//					function init(){
+						//						navigator.geolocation.getCurrentPosition(placeMap);
+						//					}
+						//
+						//					function placeMap(data){
+						//						var options = {
+						//							center:{
+						//								lat:data.coords.latitude,
+						//								lng:data.coords.longitude
+						//							},
+						//							zoom:12
+						//						}
+						//						var map = new google.maps.Map(m,options);
+						//						console.dir(data);
+						//					}
+						//
+
+
+
+						//getCurrentPosition
+						//					
+						//					
+						//					window.onload = init;
+						//					function init(){
+						//						navigator.geolocation.getCurrentPosition(placeMap);
+						//					}
+						//
+						//					function placeMap(data){
+						//						console.dir(data);
+						//					}
+						//
+						//
+						//
+						//					//file reader
+
+
+						//					input type="file" multiple onchange="upFiles(this.files)"
+						//					div id="message"
+						//					var message = document.getElementById("message");
+						//
+						//					if(window.FileReader){
+						//						message.innerHTML = "file reader is available";
+						//					}else{
+						//						message.innerHTML = "file reader is not available";
+						//					}
+						//
+						//					function upFiles(files){
+						//						
+						//						for(var x=0; x<files.length; x++){
+						//							var fReader = new FileReader();
+						//							var fileName = files[x].name;
+						//							
+						//							fReader.onload = function(e){
+						//								message.innerHTML +="<br>"+fileName;
+						//								message.innerHTML +="<br>"+e.target.result;
+						//							}
+						//							fReader.readAsText(files[x]);
+						//						}
+						//					}
+
+
+						//					var playLockout = false;
+						//					var gamePlay = false;
+						//					var tileImages=[];
+						//					var tileArray=[];
+						//					var tileFlippedOver=[];
+						//
+						//
+						//
+						//					var sb=document.getElementById("start");
+						//					var message=document.getElementById("message");
+						//					var score = document.getElementById("score");
+						//					var gameBoard = document.getElementById("gameboard");
+						//
+						//
+						//					sb.addEventListener("click", startGame);
+						//
+						//					function startGame(){
+						//						//hide start button
+						//						sb.style.display="none";
+						//
+						//						message.innerHTML = "Its working "+ gamePlay;
+						//						if(!gamePlay){
+						//							gamePlay = true;
+						//							buildArray();
+						////							tileArray= tileImages.concat(tileImages);
+						//							shuffleArray(tileArray);
+						//							console.log("1.jpg");
+						//							//buildboard
+						//
+						//						}
+						//					}
+						//
+						//					function buildArray(){
+						//						for(var x=1; x<7; x++){
+						//							var b = tileArray.push(x+".jpg");
+						//							console.log(b+".jpg");
+						//						}
+						//					}
+						//
+						//					function shuffleArray(array){
+						//						for(var x=array.length-1; x>0; x--){
+						//
+						//							var holder = Math.floor(Math.random()*(x+1))
+						//							var itemValue = array[x];
+						//							array[x] = array[holder];
+						//							array[holder] = itemValue;
+						//
+						//						}
+						//						return array;
+						//					}
 
 
 
@@ -316,589 +317,589 @@
 
 
 
-
-
+
+
 
 
-					//					var a ="hello";
-					//					if(a="helloworld"){
-					//						console.log("works");
-					//					}
+						//					var a ="hello";
+						//					if(a="helloworld"){
+						//						console.log("works");
+						//					}
 
-					//					"use strict"
-					//					
-					//					myFun();
-					//					
-					//					console.log(a);
-					//					
-					//					function myFun(){
-					//						a = "Hello World";
-					//					}
+						//					"use strict"
+						//					
+						//					myFun();
+						//					
+						//					console.log(a);
+						//					
+						//					function myFun(){
+						//						a = "Hello World";
+						//					}
 
 
 
-					//					console.log(a);
-					//					
-					//					(function(){
-					//						console.log(b);
-					//						var b = "B is great";
-					//					})();
-					//					var a = "Hellow world";
+						//					console.log(a);
+						//					
+						//					(function(){
+						//						console.log(b);
+						//						var b = "B is great";
+						//					})();
+						//					var a = "Hellow world";
 
 
 
 
-					//					var myArr = ["Laurence", "Mike", "Lrry"];
-					//					function showNames(){
-					//						console.log(arguments);
-					//						console.log(arguments[0]);
-					//					}
-					//					showNames(myArr, "JavaScript");
-
-
-					//					(function(){
-					//						var message = "Hello World";
-					//						document.getElementById("output").innerHTML = message;
-					//					})();
-
-					//					function cCookie(name, value, days){
-					//						var e = "";
-					//						if(days){
-					//							var d = new Date();
-					//							d.setTime(d.getTime()+(days*24*60*60*1000));
-					//							e = "; expires="+d.toUTCString();
-					//						}
-					//						document.cookie = name + "=" + value + e +";path=/";
-					//					}
-					//					
-					//					function rCookie(name){
-					//						var p = name + "=";
-					//						var c = document.cookie.split(";");
-					//						console.log(c);
-					//						
-					//						for(var x=0; x<c.length; x++){
-					//							
-					////							var t = c[x].charAt(0)==" " ? c[x].substring(1) :c[x];
-					////							var t = c[x].trim();
-					//							var t = c[x].replace(/[^\s*].*[^\s*]/g);
-					//							console.log(t);
-					//							
-					//						}
-					//					}
-					//					
-					//					var myCookie = rCookie("test");
-
-
-
-
-
-
-
-
-
-
-
-					//					function lookUp(){
-					//						var rawText = document.myForm.textarea.value;
-					//						var eData = rawText.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-					//						console.log(eData);
-					//					}
-
-					//					function lookUp(){
-					//						var s = document.getElementById("output").innerText;
-					//						var st = document.getElementById("sText").value;
-					//						var rt = document.getElementById("rText").value;
-					//						var re = new RegExp(st, "gi");
-					//						console.log(re);
-					//						var result = s.match(re);
-					//						if(result){
-					//							var rr = s.replace(re,rt);
-					//							document.getElementById("output").innerText = rr;
-					//						}
-					//						console.log(result);
-					//					}
-
-
-
-
-
-
-
-
-
-					//					var output = document.getElementById("output");
-					//					var str = "abasdn skjkj eqwj k JavaScript adsjkj asllk 123432 43453 321 3 34 javascript 432 433 JavaScript 342 JavaScript4121";
-					//
-					//					function cEmail(e){
-					//						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-					//						var r = e.match(p);
-					//
-					//						var t = r == null ? false : true;
-					//
-					//						return t;
-					//					}
-					//					function cNumn(e){
-					//
-					//					}
-					//					function cCha(e){
-					//
-					//					}
-					//
-					//
-					//
-					//
-					//
-					//
-					//					function myFun(){
-					//						var i = document.getElementsByTagName("input");
-					//						for (var x=0; x<i.length; x++){
-					////							console.log(i[x]);
-					////							if(i[x].type=="text"){
-					////
-					////								if(i[x].id == "email"){
-					////									if(cEmail(i[x].value)){
-					////										console.log("Email Valid");
-					////									}
-					////								}
-					////								if(i[x].id == "num"){
-					////
-					////								}
-					////								if(i[x].id == "cha"){
-					////
-					////								}
-					////
-					////
-					////							}
-					//						}
-					//						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-					//						var r = i.match(p);
-					//
-					//						var t = r == null ? false : true;
-					//
-					//						return t;
-					//
-					//					}
-
-
-					//					var output = document.getElementById("output");
-					//					var str = "abasdn skjkj eqwj k JavaScript adsjkj asllk 123432 43453 321 3 34 javascript 432 433 JavaScript 342 JavaScript4121";
-					//					
-					//					
-					//					function myFun(){
-					//						var email = document.getElementById("email").value;
-					//						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
-					//						var r = email.match(p);
-					//						
-					//						var t = r == null ? false : true;
-					//						console.log(t);
-					//						return t;
-					//						
-					//					}
-					//					window.onload = build;
-					//
-					//					function build(){
-					//						var html = "<h1>Hit the computer</h1>";
-					//						for (var x=0; x<6; x++){
-					//							html +='<div class="office"><div class="desk"></div><div class="computer"></div></div>';
-					//						}
-					//						document.querySelector('.gameboard').innerHTML = html;
-					//					}
-					//
-					//					function start(){
-					//
-					//					}
-
-
-					//					function testMe(){
-					//						var x = 500;
-					//						try{
-					//							if(x>100){throw "Yes its greater than 100"}
-					//							if(x<100){throw "Yes its less than 100"}
-					//							console(x);
-					//						}
-					//						catch(e){
-					//							document.getElementById("message").innerHTML = e.message;
-					//							console.log(e);
-					//						}
-					//					}
-
-
-					//					var cDate, eDate, s, m, h, d;
-					//					var output = document.getElementById("output");
-					//					
-					//					function start(){
-					//						var tDate = event.target.valueAsDate;
-					//						message.innerHTML = tDate;
-					//						cDate = new Date();
-					//						eDate = new Date(tDate);
-					//						s = (eDate-cDate)/1000;
-					//						t = window.setTimeout(update, 1000);
-					//					}
-					//					
-					//					function update(){
-					//						cDate = new Date();
-					//						s = (eDate-cDate)/1000;
-					//						outputUpdate();
-					//						
-					//						t=window.setTimeout(update, 1000);
-					//					}
-					//					function outputUpdate(){
-					//						output.innerHTML = s;
-					//					}
-
-
-					//					var message = document.getElementById("message");
-					//					
-					//					var d = new Date();
-					////					var d = new Date("April,10, 2010");
-					//					var t=d.getTime();
-					//					message.innerHTML +="<br>"+d+"<br>"+t; 
-
-
-					//					var m = Math.PI;
-					//					
-					//					var rNum = Math.ceil(Math.random()*99);
-
-					//					var message = document.getElementById("message");
-					//					
-					//					var myArr = ["javaScript", "hello", "world", "cource"];
-					//					
-					//					window.onload = sWord;
-					//					
-					//					var randomWord;
-					//					
-					//					function sWord(){
-					//						
-					//						var w = myArr[Math.floor(Math.random()*myArr.length)];
-					//						randomWord = w;
-					//						w = w.toLowerCase();
-					//						var s="";
-					//						var wLength = w.length;
-					//						
-					//						for(var x= 0; x<w.length; x++){
-					//							var i=Math.floor(Math.random()*w.length);
-					//							s+=w[i];
-					//							w=w.substr(0,i)+w.substr(i+1);
-					//						}
-					//						message.innerHTML = s;
-					//						//random item from the array
-					//						//output the word
-					//					}
-					//					function rGuess(){
-					//						var guess = document.getElementById("myString").value;
-					//						if(guess==randomWord){
-					//							message.innerHTML = "Correct";
-					//						}else{
-					//							message.innerHTML = "Wrong It was"+randomWord;
-					//						}
-					//						
-					//						sWord();
-					//						//check to see if correct
-					//					}
-
-
-					//					var a = "world hello";
-					//					var b = new String("Hello World");
-					//					
-					//					var message = document.getElementById("message");
-					//					var holder = "JavaScript";
-					//					
-					//					function rHeading(){
-					//						
-					//						var m = document.getElementById("myString").value;
-					//						var c = message.innerText;
-					//						console.log(c);
-					//						c = c.replace(holder, m);
-					//						holder = m;
-					//						message.innerText = c;
-					//					}
-
-					//					function popup(){
-					//						var url = 'index.html';
-					//						var opt = "top=0, left=300, width=200,height=200";
-					//						window.open(url,"_self",opt);
-					//					}
-
-					//					var message = document.getElementById("message");
-					//					var message1 = document.getElementById("message1");
-					//
-					//					
-					//					var el = document.querySelector("#pickme .output");
-					//					function imgU(){
-					//						console.dir(event.target);
-					//						console.dir(event.target.value);
-					//					}
-
-					//					function cFun(){
-					//						var P= event.target;
-					//						
-					//						if(P.name=="e1"){
-					//							message("First Name Changed to "+P.value);
-					//						}else{
-					//							message("Last Name Changed to "+P.value);
-					//						}
-					//					}
-					//					function sendInfo(){
-					//						var P= event.target.parentElement;
-					//						message("Welcome "+P.e1.value+" "+P.e2.value);
-					//					}
-					//					
-					//					function message(m){
-					//						document.getElementById("wrapper").innerHTML = m;
-					//					}
-
-
-
-					//					var output = document.getElementById("wrapper");
-					//					
-					//					var imgHolder = "img/images2.jpg";
-					//					window.onload = function(){
-					//						document.getElementById("imgSwap").src = imgHolder;
-					//					}
-					//					
-					//					function cImg(t){
-					//						message(t.src);
-					//						imgHolder = t.src;
-					//						
-					//						t.src = "img/images1.jpg";
-					//					}
-					//					
-					//					function bImg(t){
-					//						t.src = imgHolder;
-					//					}
-					//					
-					//					function message(m){
-					//						output.innerHTML = m;
-					//					}
-
-					//					window.onload = function (event){
-					//						myFun('WINDOW;')
-					//					}
-					//					function myFun(a){
-					//						output.innerHTML = "WELCOME ALL LOADED "+a;
-					//					}
-					//					
-
-					//					document.getElementById("id1").onclick = myFun;
-					//					
-					//					
-					//					
-					//					function myFun(){
-					//						console.dir(this);
-					//						this.value = "CLICKED";
-					//						output.innerHTML = "WORKED";
-					//					}
-
-
-					//					function myFun(t){
-					//						console.dir(t);
-					//						output.innerHTML = t.value;
-					//						t.value = "CLICKED";
-					//					}
-
-					//					function goUrl(){
-					//						var url = document.getElementById("url").value;
-					//						window.location = url;
-					//					}
-					//					function myValue(){
-					//						document.getElementById("wrapper").innerHTML = document.myForm.url.value;
-					//					}
-					//
-					//					function goUrl2(url){
-					//						window.location = url;
-					//					}
-
-					//					output.innerHTML = navigator.userActivation;
-					//					window.setTimeout(updateWrapper,5000);
-					//					var myTimer;
-					//					function startInt(){
-					//						myPopup();
-					//						myTimer = window.setTimeout(myPopup, 1000);
-					//					}
-					//					function updateWrapper(){
-					//						document.getElementById("wrapper").innerHTML = "Welcome to my Website :)";
-					//					}
-					//					function clearInt(){
-					//						window.clearInterval(myTimer);
-					//					}
-					//					function myPopup(){
-					//						alert("Time OUt");
-					//					}
-					//					console.dir(navigator);
-
-					//                    function goBack(){
-					//                        window.history.go(-1);
-					//                    }
-
-					//                    var output = document.getElementById("wrapper");
-					//                    console.dir(window);
-					//                    for(var prop in window){
-					//                        document.write(prop+"--"+window[prop]+"<br>");
-					//                    }
-					//
-					//                    output.innerHTML +=window.innerHeight+" "+window.innerWidth;
-					//
-					//                    var windowOff = window.open('index2.html');
-					//                    windowOff.onbeforeunload = function(){
-					//                        alert("don't go new page?");
-					//                        
-					//                    }
-
-					//                    <div id="wrapper">
-					//                    <div id="start"></div>How many Players?
-					//                    <input type="number" id="players" min="1" max="5" value="3">
-					//                    <button id="btnDeal" type="button" onclick="startDeal()">Deal</button>
-					//                    <div id="output"></div>
-					//                </div>
-
-					//                    var suits =["spades", "hearts","clubs","diams"];
-					//                    var cardFace = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
-					//                    var cards=[];
-					//                    var players=[];
-					//
-					//
-					//                    function startDeal(){
-					//                        players=[];
-					//                        cards=[];
-					//                        var num=Number(document.getElementById("players").value);
-					//                        for(var i=0; i<num; i++){
-					//                            players[i]=[];
-					//                        }
-					//                        buildCards();
-					//                        console.log(cards);
-					//                        shuffleCards(cards);
-					//                        deal(cards);
-					//                    }
-					//                    function buildCards(){
-					//                        for(s in suits){
-					//                            var bgColor = (suits[s]=="hearts" || suits[s]=="diams")? "red":"black";
-					//                            for(c in cardFace){
-					//                                var card = {
-					//                                    suit:suits[s],
-					//                                    num:cardFace[c],
-					//                                    bgColor:bgColor
-					//                                }
-					//                                cards.push(card);
-					//                            }
-					//                        }
-					//                    }
-					//                    function shuffleCards(array){
-					//                        for(var x=array.length-1; x>0; x--){
-					//                            var ii = Math.floor(Math.random()*(x+1));
-					//                            var temp=array[x];
-					//                            array[x]=array[ii];
-					//                            array[ii]=temp;
-					//                        }
-					//                        return array;
-					//                    }
-					//                    function deal(cards){
-					//                        var num = players.length;
-					//                        var output = document.getElementById("output");
-					//                        var p=0;
-					//                        for(var i=0; i<cards.length; i++){
-					//                            players[0].push(cards[i]);
-					//                            p++;
-					//                            if(p>=num){p=0
-					//                                
-					//                            }
-					//                        }
-					//                    }
-					//                    var output = document.getElementById("output");
-					//                    var num1 = document.getElementById("num1");
-					//                    var num2 = document.getElementById("num2");
-					//                    
-					//                    function addBy(){
-					//                        outC(num1.value, num2.value, "+", function(a,b){
-					//                            return (a+b);
-					//                        });
-					//                    }
-					//                    function subBy(){
-					//                        outC(num1.value, num2.value, "-", function(a,b){
-					//                            return a-b;
-					//                        });
-					//                    }
-					//                    function mulBy(){
-					//                        outC(num1.value, num2.value, "+", function(a,b){
-					//                            return a*b;
-					//                        });
-					//                    }
-					//                    function divBy(){
-					//                        outC(num1.value, num2.value, "+", function(a, b){
-					//                            return a/b;
-					//                        });
-					//                    }
-					//                    
-					//                    
-					//                    function outC(a,b,s,cback){
-					//                        var result = cback(Number(a), Number(b));
-					//                        output.innerHTML += a +" "+s+" "+b+" = "+result+"<br>";
-					//                    }
-
-
-					//                    var shoppingList =[];
-					//
-					//                    function addItem(){
-					//                        
-					//                        var addItem = document.getElementById("item").value;
-					//                        shoppingList.push(addItem);
-					//                        
-					//                        function outputList(){
-					//                            var html ="";
-					//                            var itemList = document.getElementById("itemList");
-					//
-					//                            for(var x=0; x<shoppingList.length; x++){
-					//                                html += (x+1)+ "."+shoppingList[x]+"<br>";
-					//                            }
-					//
-					//                            itemList.innerHTML=html+"<br>";
-					//                        }
-					//
-					//                        outputList();
-					//
-					//                    }
-
-
-					//                    var showDiv = document.getElementById("showDiv");
-					//                    var myArray = ["hello","World",33,4454,433,"JavaScript","hello","World"];
-					//                    var myArrayClean = removeDup(myArray);
-					//                    
-					//                    showDiv.innerHTML = myArray + "<br>"+myArrayClean;
-					//                    
-					//                    function removeDup(arr){
-					//                        var cArray =[];
-					//                        var cObject ={};
-					//                        for(var x=0; x<arr.length; x++)
-					//                        {
-					//                            cObject[arr[x]]="what ever";
-					//                        }
-					//                        console.log(cObject);
-					//                        for(z in cObject){
-					//                            console.log(z);
-					//                            cArray.push(z);
-					//                        }
-					//                        return cArray;
-					//                    }
-
-					//                    var showDiv = document.getElementById("showDiv");
-					//                    var myArray = ["Hello", "World", 6554, 435, 54, 54356, "JavaScript","Css", "PHP", "JQuery", 6545,54356, "World","Hello", 6554];
-					//
-					//                    showDiv.innerHTML = myArray +"<br>"+mycArray(myArray)+"<br>";
-					//
-					//
-					//                    function mycArray(arr){
-					//                        var cArray =[];
-					//                        var cObject={};
-					//
-					//                        for(var x=0; x<arr.length; x++){
-					//                            cObject[arr[x]]="What ever";
-					//                        }
-					//
-					//                        for(var z in cObject){
-					//                            cArray.push(z);
-					//                        }
-					//
-					//                        return cArray;
-					//                    }
+						//					var myArr = ["Laurence", "Mike", "Lrry"];
+						//					function showNames(){
+						//						console.log(arguments);
+						//						console.log(arguments[0]);
+						//					}
+						//					showNames(myArr, "JavaScript");
+
+
+						//					(function(){
+						//						var message = "Hello World";
+						//						document.getElementById("output").innerHTML = message;
+						//					})();
+
+						//					function cCookie(name, value, days){
+						//						var e = "";
+						//						if(days){
+						//							var d = new Date();
+						//							d.setTime(d.getTime()+(days*24*60*60*1000));
+						//							e = "; expires="+d.toUTCString();
+						//						}
+						//						document.cookie = name + "=" + value + e +";path=/";
+						//					}
+						//					
+						//					function rCookie(name){
+						//						var p = name + "=";
+						//						var c = document.cookie.split(";");
+						//						console.log(c);
+						//						
+						//						for(var x=0; x<c.length; x++){
+						//							
+						////							var t = c[x].charAt(0)==" " ? c[x].substring(1) :c[x];
+						////							var t = c[x].trim();
+						//							var t = c[x].replace(/[^\s*].*[^\s*]/g);
+						//							console.log(t);
+						//							
+						//						}
+						//					}
+						//					
+						//					var myCookie = rCookie("test");
+
+
+
+
+
+
+
+
+
+
+
+						//					function lookUp(){
+						//						var rawText = document.myForm.textarea.value;
+						//						var eData = rawText.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+						//						console.log(eData);
+						//					}
+
+						//					function lookUp(){
+						//						var s = document.getElementById("output").innerText;
+						//						var st = document.getElementById("sText").value;
+						//						var rt = document.getElementById("rText").value;
+						//						var re = new RegExp(st, "gi");
+						//						console.log(re);
+						//						var result = s.match(re);
+						//						if(result){
+						//							var rr = s.replace(re,rt);
+						//							document.getElementById("output").innerText = rr;
+						//						}
+						//						console.log(result);
+						//					}
+
+
+
+
+
+
+
+
+
+						//					var output = document.getElementById("output");
+						//					var str = "abasdn skjkj eqwj k JavaScript adsjkj asllk 123432 43453 321 3 34 javascript 432 433 JavaScript 342 JavaScript4121";
+						//
+						//					function cEmail(e){
+						//						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+						//						var r = e.match(p);
+						//
+						//						var t = r == null ? false : true;
+						//
+						//						return t;
+						//					}
+						//					function cNumn(e){
+						//
+						//					}
+						//					function cCha(e){
+						//
+						//					}
+						//
+						//
+						//
+						//
+						//
+						//
+						//					function myFun(){
+						//						var i = document.getElementsByTagName("input");
+						//						for (var x=0; x<i.length; x++){
+						////							console.log(i[x]);
+						////							if(i[x].type=="text"){
+						////
+						////								if(i[x].id == "email"){
+						////									if(cEmail(i[x].value)){
+						////										console.log("Email Valid");
+						////									}
+						////								}
+						////								if(i[x].id == "num"){
+						////
+						////								}
+						////								if(i[x].id == "cha"){
+						////
+						////								}
+						////
+						////
+						////							}
+						//						}
+						//						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+						//						var r = i.match(p);
+						//
+						//						var t = r == null ? false : true;
+						//
+						//						return t;
+						//
+						//					}
+
+
+						//					var output = document.getElementById("output");
+						//					var str = "abasdn skjkj eqwj k JavaScript adsjkj asllk 123432 43453 321 3 34 javascript 432 433 JavaScript 342 JavaScript4121";
+						//					
+						//					
+						//					function myFun(){
+						//						var email = document.getElementById("email").value;
+						//						var p = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+						//						var r = email.match(p);
+						//						
+						//						var t = r == null ? false : true;
+						//						console.log(t);
+						//						return t;
+						//						
+						//					}
+						//					window.onload = build;
+						//
+						//					function build(){
+						//						var html = "<h1>Hit the computer</h1>";
+						//						for (var x=0; x<6; x++){
+						//							html +='<div class="office"><div class="desk"></div><div class="computer"></div></div>';
+						//						}
+						//						document.querySelector('.gameboard').innerHTML = html;
+						//					}
+						//
+						//					function start(){
+						//
+						//					}
+
+
+						//					function testMe(){
+						//						var x = 500;
+						//						try{
+						//							if(x>100){throw "Yes its greater than 100"}
+						//							if(x<100){throw "Yes its less than 100"}
+						//							console(x);
+						//						}
+						//						catch(e){
+						//							document.getElementById("message").innerHTML = e.message;
+						//							console.log(e);
+						//						}
+						//					}
+
+
+						//					var cDate, eDate, s, m, h, d;
+						//					var output = document.getElementById("output");
+						//					
+						//					function start(){
+						//						var tDate = event.target.valueAsDate;
+						//						message.innerHTML = tDate;
+						//						cDate = new Date();
+						//						eDate = new Date(tDate);
+						//						s = (eDate-cDate)/1000;
+						//						t = window.setTimeout(update, 1000);
+						//					}
+						//					
+						//					function update(){
+						//						cDate = new Date();
+						//						s = (eDate-cDate)/1000;
+						//						outputUpdate();
+						//						
+						//						t=window.setTimeout(update, 1000);
+						//					}
+						//					function outputUpdate(){
+						//						output.innerHTML = s;
+						//					}
+
+
+						//					var message = document.getElementById("message");
+						//					
+						//					var d = new Date();
+						////					var d = new Date("April,10, 2010");
+						//					var t=d.getTime();
+						//					message.innerHTML +="<br>"+d+"<br>"+t; 
+
+
+						//					var m = Math.PI;
+						//					
+						//					var rNum = Math.ceil(Math.random()*99);
+
+						//					var message = document.getElementById("message");
+						//					
+						//					var myArr = ["javaScript", "hello", "world", "cource"];
+						//					
+						//					window.onload = sWord;
+						//					
+						//					var randomWord;
+						//					
+						//					function sWord(){
+						//						
+						//						var w = myArr[Math.floor(Math.random()*myArr.length)];
+						//						randomWord = w;
+						//						w = w.toLowerCase();
+						//						var s="";
+						//						var wLength = w.length;
+						//						
+						//						for(var x= 0; x<w.length; x++){
+						//							var i=Math.floor(Math.random()*w.length);
+						//							s+=w[i];
+						//							w=w.substr(0,i)+w.substr(i+1);
+						//						}
+						//						message.innerHTML = s;
+						//						//random item from the array
+						//						//output the word
+						//					}
+						//					function rGuess(){
+						//						var guess = document.getElementById("myString").value;
+						//						if(guess==randomWord){
+						//							message.innerHTML = "Correct";
+						//						}else{
+						//							message.innerHTML = "Wrong It was"+randomWord;
+						//						}
+						//						
+						//						sWord();
+						//						//check to see if correct
+						//					}
+
+
+						//					var a = "world hello";
+						//					var b = new String("Hello World");
+						//					
+						//					var message = document.getElementById("message");
+						//					var holder = "JavaScript";
+						//					
+						//					function rHeading(){
+						//						
+						//						var m = document.getElementById("myString").value;
+						//						var c = message.innerText;
+						//						console.log(c);
+						//						c = c.replace(holder, m);
+						//						holder = m;
+						//						message.innerText = c;
+						//					}
+
+						//					function popup(){
+						//						var url = 'index.html';
+						//						var opt = "top=0, left=300, width=200,height=200";
+						//						window.open(url,"_self",opt);
+						//					}
+
+						//					var message = document.getElementById("message");
+						//					var message1 = document.getElementById("message1");
+						//
+						//					
+						//					var el = document.querySelector("#pickme .output");
+						//					function imgU(){
+						//						console.dir(event.target);
+						//						console.dir(event.target.value);
+						//					}
+
+						//					function cFun(){
+						//						var P= event.target;
+						//						
+						//						if(P.name=="e1"){
+						//							message("First Name Changed to "+P.value);
+						//						}else{
+						//							message("Last Name Changed to "+P.value);
+						//						}
+						//					}
+						//					function sendInfo(){
+						//						var P= event.target.parentElement;
+						//						message("Welcome "+P.e1.value+" "+P.e2.value);
+						//					}
+						//					
+						//					function message(m){
+						//						document.getElementById("wrapper").innerHTML = m;
+						//					}
+
+
+
+						//					var output = document.getElementById("wrapper");
+						//					
+						//					var imgHolder = "img/images2.jpg";
+						//					window.onload = function(){
+						//						document.getElementById("imgSwap").src = imgHolder;
+						//					}
+						//					
+						//					function cImg(t){
+						//						message(t.src);
+						//						imgHolder = t.src;
+						//						
+						//						t.src = "img/images1.jpg";
+						//					}
+						//					
+						//					function bImg(t){
+						//						t.src = imgHolder;
+						//					}
+						//					
+						//					function message(m){
+						//						output.innerHTML = m;
+						//					}
+
+						//					window.onload = function (event){
+						//						myFun('WINDOW;')
+						//					}
+						//					function myFun(a){
+						//						output.innerHTML = "WELCOME ALL LOADED "+a;
+						//					}
+						//					
+
+						//					document.getElementById("id1").onclick = myFun;
+						//					
+						//					
+						//					
+						//					function myFun(){
+						//						console.dir(this);
+						//						this.value = "CLICKED";
+						//						output.innerHTML = "WORKED";
+						//					}
+
+
+						//					function myFun(t){
+						//						console.dir(t);
+						//						output.innerHTML = t.value;
+						//						t.value = "CLICKED";
+						//					}
+
+						//					function goUrl(){
+						//						var url = document.getElementById("url").value;
+						//						window.location = url;
+						//					}
+						//					function myValue(){
+						//						document.getElementById("wrapper").innerHTML = document.myForm.url.value;
+						//					}
+						//
+						//					function goUrl2(url){
+						//						window.location = url;
+						//					}
+
+						//					output.innerHTML = navigator.userActivation;
+						//					window.setTimeout(updateWrapper,5000);
+						//					var myTimer;
+						//					function startInt(){
+						//						myPopup();
+						//						myTimer = window.setTimeout(myPopup, 1000);
+						//					}
+						//					function updateWrapper(){
+						//						document.getElementById("wrapper").innerHTML = "Welcome to my Website :)";
+						//					}
+						//					function clearInt(){
+						//						window.clearInterval(myTimer);
+						//					}
+						//					function myPopup(){
+						//						alert("Time OUt");
+						//					}
+						//					console.dir(navigator);
+
+						//                    function goBack(){
+						//                        window.history.go(-1);
+						//                    }
+
+						//                    var output = document.getElementById("wrapper");
+						//                    console.dir(window);
+						//                    for(var prop in window){
+						//                        document.write(prop+"--"+window[prop]+"<br>");
+						//                    }
+						//
+						//                    output.innerHTML +=window.innerHeight+" "+window.innerWidth;
+						//
+						//                    var windowOff = window.open('index2.html');
+						//                    windowOff.onbeforeunload = function(){
+						//                        alert("don't go new page?");
+						//                        
+						//                    }
+
+						//                    <div id="wrapper">
+						//                    <div id="start"></div>How many Players?
+						//                    <input type="number" id="players" min="1" max="5" value="3">
+						//                    <button id="btnDeal" type="button" onclick="startDeal()">Deal</button>
+						//                    <div id="output"></div>
+						//                </div>
+
+						//                    var suits =["spades", "hearts","clubs","diams"];
+						//                    var cardFace = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
+						//                    var cards=[];
+						//                    var players=[];
+						//
+						//
+						//                    function startDeal(){
+						//                        players=[];
+						//                        cards=[];
+						//                        var num=Number(document.getElementById("players").value);
+						//                        for(var i=0; i<num; i++){
+						//                            players[i]=[];
+						//                        }
+						//                        buildCards();
+						//                        console.log(cards);
+						//                        shuffleCards(cards);
+						//                        deal(cards);
+						//                    }
+						//                    function buildCards(){
+						//                        for(s in suits){
+						//                            var bgColor = (suits[s]=="hearts" || suits[s]=="diams")? "red":"black";
+						//                            for(c in cardFace){
+						//                                var card = {
+						//                                    suit:suits[s],
+						//                                    num:cardFace[c],
+						//                                    bgColor:bgColor
+						//                                }
+						//                                cards.push(card);
+						//                            }
+						//                        }
+						//                    }
+						//                    function shuffleCards(array){
+						//                        for(var x=array.length-1; x>0; x--){
+						//                            var ii = Math.floor(Math.random()*(x+1));
+						//                            var temp=array[x];
+						//                            array[x]=array[ii];
+						//                            array[ii]=temp;
+						//                        }
+						//                        return array;
+						//                    }
+						//                    function deal(cards){
+						//                        var num = players.length;
+						//                        var output = document.getElementById("output");
+						//                        var p=0;
+						//                        for(var i=0; i<cards.length; i++){
+						//                            players[0].push(cards[i]);
+						//                            p++;
+						//                            if(p>=num){p=0
+						//                                
+						//                            }
+						//                        }
+						//                    }
+						//                    var output = document.getElementById("output");
+						//                    var num1 = document.getElementById("num1");
+						//                    var num2 = document.getElementById("num2");
+						//                    
+						//                    function addBy(){
+						//                        outC(num1.value, num2.value, "+", function(a,b){
+						//                            return (a+b);
+						//                        });
+						//                    }
+						//                    function subBy(){
+						//                        outC(num1.value, num2.value, "-", function(a,b){
+						//                            return a-b;
+						//                        });
+						//                    }
+						//                    function mulBy(){
+						//                        outC(num1.value, num2.value, "+", function(a,b){
+						//                            return a*b;
+						//                        });
+						//                    }
+						//                    function divBy(){
+						//                        outC(num1.value, num2.value, "+", function(a, b){
+						//                            return a/b;
+						//                        });
+						//                    }
+						//                    
+						//                    
+						//                    function outC(a,b,s,cback){
+						//                        var result = cback(Number(a), Number(b));
+						//                        output.innerHTML += a +" "+s+" "+b+" = "+result+"<br>";
+						//                    }
+
+
+						//                    var shoppingList =[];
+						//
+						//                    function addItem(){
+						//                        
+						//                        var addItem = document.getElementById("item").value;
+						//                        shoppingList.push(addItem);
+						//                        
+						//                        function outputList(){
+						//                            var html ="";
+						//                            var itemList = document.getElementById("itemList");
+						//
+						//                            for(var x=0; x<shoppingList.length; x++){
+						//                                html += (x+1)+ "."+shoppingList[x]+"<br>";
+						//                            }
+						//
+						//                            itemList.innerHTML=html+"<br>";
+						//                        }
+						//
+						//                        outputList();
+						//
+						//                    }
+
+
+						//                    var showDiv = document.getElementById("showDiv");
+						//                    var myArray = ["hello","World",33,4454,433,"JavaScript","hello","World"];
+						//                    var myArrayClean = removeDup(myArray);
+						//                    
+						//                    showDiv.innerHTML = myArray + "<br>"+myArrayClean;
+						//                    
+						//                    function removeDup(arr){
+						//                        var cArray =[];
+						//                        var cObject ={};
+						//                        for(var x=0; x<arr.length; x++)
+						//                        {
+						//                            cObject[arr[x]]="what ever";
+						//                        }
+						//                        console.log(cObject);
+						//                        for(z in cObject){
+						//                            console.log(z);
+						//                            cArray.push(z);
+						//                        }
+						//                        return cArray;
+						//                    }
+
+						//                    var showDiv = document.getElementById("showDiv");
+						//                    var myArray = ["Hello", "World", 6554, 435, 54, 54356, "JavaScript","Css", "PHP", "JQuery", 6545,54356, "World","Hello", 6554];
+						//
+						//                    showDiv.innerHTML = myArray +"<br>"+mycArray(myArray)+"<br>";
+						//
+						//
+						//                    function mycArray(arr){
+						//                        var cArray =[];
+						//                        var cObject={};
+						//
+						//                        for(var x=0; x<arr.length; x++){
+						//                            cObject[arr[x]]="What ever";
+						//                        }
+						//
+						//                        for(var z in cObject){
+						//                            cArray.push(z);
+						//                        }
+						//
+						//                        return cArray;
+						//                    }
 
 
 				</script>
