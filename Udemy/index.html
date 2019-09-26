@@ -29,53 +29,53 @@
 						{
 							name:"iPhone",
 							details:"White",
-							cost:500
+							cost:5000
 						},
 						{
 							name:"iPod",
 							details:"White",
-							cost:800
+							cost:80000
 						},
 						{
 							name:"w cable 6",
 							details:"4 foot",
-							cost:20
+							cost:20000
 						}
 						,
 						{
 							name:"Camera",
 							details:"25MP",
-							cost:300
+							cost:30000
 						}
 						,
 						{
 							name:"Laptop",
 							details:"Intel i7",
-							cost:1200
+							cost:12000
 						}
 						,
 						{
 							name:"LCD Monitor",
 							details:"24 inch",
-							cost:200
+							cost:20000
 						}
 						,
 						{
 							name:"TV",
 							details:"50 inch",
-							cost:450
+							cost:45000
 						}
 						,
 						{
 							name:"Samsung s7",
 							details:"S7",
-							cost:360
+							cost:36000
 						}
 						,
 						{
 							name:"cable",
 							details:"3 foot",
-							cost:10
+							cost:10800
 						}
 
 					];
@@ -124,7 +124,7 @@
 						shopcart.forEach(function(v){
 							var stotal = v.qty*v.price;
 							total +=stotal;
-							html += "<tr><td>"+v.name+"("+v.details+")</td><td>"+v.qty+"</td><td>"+v.price+"</td><td>"+v.id+"</td><td>"+fMoney(stotal)+"</td><td></td></tr>";
+							html += "<tr><td>"+v.name+"("+v.details+")</td><td>"+v.qty+"</td><td>"+v.price+"</td><td>"+v.id+"</td><td>"+fMoney(stotal)+"</td><td><span class='remove text-danger bg-danger btn' onclick='remove("+v.id+")'>X</span></td></tr>";
 						});
 						html +="<tr><td colspan='6'>Total = "+fMoney(total)+"</td></tr></table>";
 						document.getElementById("output2").innerHTML = html;
@@ -133,13 +133,26 @@
 					function buildItems(){
 						var x=0;
 						items.forEach(function(v){
-							html +="<div class='item'><h3>"+v.name+"</h3><img src='https://via.placeholder.com/250x150' class='img-fluid'><div>" + v.details + "<a href='#' class='productItem' data-name='"+ v.name +"'data-details='"+ v.details +"'data-price='"+v.cost+"'data-id='"+x+"'> Add to Cart </a></div></div>";
+							html +="<div class='item'><h3>"+v.name+"</h3><img src='https://via.placeholder.com/250x150' class='img-fluid'><div>" + v.details + "<a href='#' class='productItem' data-name='"+ v.name +"'data-details='"+ v.details +"'data-price='"+v.cost+"'data-id='"+x+"'> Add to Cart </a></div>"+ fMoney(v.cost) +"</div>";
 							x++;
 
 						})
 						document.getElementById("output").innerHTML += html;
 					}
-					
+
+
+					function remove(id){
+
+						for(var x=0; x<shopcart.length; x++){
+							if(shopcart[x].id==id){
+								shopcart.splice(x,1);
+							}
+						}
+						localStorage.setItem("scart",JSON.stringify(shopcart));
+						outputCart();
+					}
+
+
 					function fMoney(n){
 						return "$"+(n/100).toFixed(2);
 					}
