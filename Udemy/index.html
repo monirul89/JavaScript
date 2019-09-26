@@ -20,6 +20,7 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">Complete javaScript Cource</div>
+				<div id="output2" class="text-center">Complete javaScript Cource</div>
 
 
 				<script type="application/javascript">
@@ -36,9 +37,9 @@
 							cost:800
 						},
 						{
-							name:"cable",
-							details:"3 foot",
-							cost:10
+							name:"w cable 6",
+							details:"4 foot",
+							cost:20
 						}
 						,
 						{
@@ -66,9 +67,9 @@
 						}
 						,
 						{
-							name:"cable",
-							details:"3 foot",
-							cost:10
+							name:"Samsung s7",
+							details:"S7",
+							cost:360
 						}
 						,
 						{
@@ -80,7 +81,7 @@
 					];
 
 					var html='<br>';
-					
+
 					var shopcart=[];
 
 					window.onload = init;
@@ -93,23 +94,54 @@
 								addToCart();
 							})
 						}
+						outputCart();
 					}
-					
+
 					function addToCart(){
-						console.log(event.target.dataset);
-						console.log("Details : "+event.target.dataset.details);
-						
+						var iteminfo = event.target.dataset;
+						var itemincart=false;
+						iteminfo.qty = 1;
+						shopcart.forEach(function(v){
+							if(v.id==iteminfo.id){
+								v.qty = parseInt(v.qty)+parseInt(iteminfo.qty);
+								itemincart = true;
+							}
+						});
+						if(!itemincart){
+							shopcart.push(iteminfo);
+						}
+						localStorage.setItem("scart",JSON.stringify(shopcart));
+						outputCart();
+
+
 					}
-					
+					function outputCart(){
+						if(localStorage.getItem("scart")!=null){
+							shopcart = JSON.parse(localStorage.getItem("scart"));
+						}
+						var html = "<table><tr><th>Item</th><th>Quantity</th><th>Cost</th><th>ID</th><th>Subtotal</th><th>Options</th></tr>";
+						var total = 0;
+						shopcart.forEach(function(v){
+							var stotal = v.qty*v.price;
+							total +=stotal;
+							html += "<tr><td>"+v.name+"("+v.details+")</td><td>"+v.qty+"</td><td>"+v.price+"</td><td>"+v.id+"</td><td>"+fMoney(stotal)+"</td><td></td></tr>";
+						});
+						html +="<tr><td colspan='6'>Total = "+fMoney(total)+"</td></tr></table>";
+						document.getElementById("output2").innerHTML = html;
+					}
+
 					function buildItems(){
 						var x=0;
 						items.forEach(function(v){
 							html +="<div class='item'><h3>"+v.name+"</h3><img src='https://via.placeholder.com/250x150' class='img-fluid'><div>" + v.details + "<a href='#' class='productItem' data-name='"+ v.name +"'data-details='"+ v.details +"'data-price='"+v.cost+"'data-id='"+x+"'> Add to Cart </a></div></div>";
 							x++;
-							console.log(v);
 
 						})
-						document.getElementById("output").innerHTML +=html;
+						document.getElementById("output").innerHTML += html;
+					}
+					
+					function fMoney(n){
+						return "$"+(n/100).toFixed(2);
 					}
 
 

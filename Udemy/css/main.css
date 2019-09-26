@@ -85,7 +85,7 @@ body{
 	border: 1px solid #dcdcdc;
 	padding: 1%;
 	width: 30%;
-/*	float: left;*/
+	/*	float: left;*/
 	display: inline-block;
 	height: 150px;
 }
@@ -98,4 +98,15 @@ body{
 	padding: 0;
 	margin: 0;
 	line-height: 30px;
+}
+table{
+	width: 100%;
+}
+th{
+	text-align: center;}
+table,th,td{
+	border: 1px solid #ddd;
+}
+table {
+	border-collapse: collapse;
 }
