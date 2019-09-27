@@ -20,13 +20,39 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">Complete javaScript Cource</div>
-				<canvas id="canvas1"></canvas>
+				<canvas id="canvas"></canvas>
 
 
 				<script type="application/javascript">
 					
+					window.onload = init;
 					
+					var canvas = document.getElementById("canvas");
+					var ctx=canvas.getContext("2d");
+					canvas.height= 300;
+					canvas.width=250;
+					var pos = {x:0, y:50};
+					var pos1 = {x:0, y:50};
 					
+					function init(){
+						draw();
+						
+					}
+					
+					function draw(){
+						pos.x = pos.x+5;
+						pos1.x = pos.x+5;
+						if(pos.x>canvas.width){ pos.x=0; }
+						if(pos1.y>canvas.height){ pos1.y=0; }
+						
+						ctx.clearRect(0,0,canvas.width, canvas.height);
+						
+						ctx.beginPath();
+						ctx.fillStyle="red";
+						ctx.arc(pos.x, pos.y, 50,0,Math.PI*2);
+						ctx.fill();
+						window.setTimeout(draw, 100);
+					}
 					
 					
 					
