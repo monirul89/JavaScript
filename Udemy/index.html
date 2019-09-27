@@ -20,57 +20,86 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">Complete javaScript Cource</div>
-				<canvas id="canvas"></canvas>
+				<input type="file" id="imgLoader" />
+				<canvas id="canvas">ddsd</canvas>
 
 
 				<script type="application/javascript">
 					
-					window.onload = init;
-					
 					var canvas = document.getElementById("canvas");
 					var ctx=canvas.getContext("2d");
-					canvas.height= 300;
-					canvas.width=250;
-					var pos = {x:0, y:50};
-					var pos1 = {x:100, y:50};
+					var imgLoader = document.getElementById("imgLoader");
+					imgLoader.addEventListener("change", upImage, false);
 					
-					function init(){
-						draw();
-						
-					}
-					
-					function draw(){
-						pos.x = pos.x+5;
-						pos1.y = pos1.y+5;
-						if(pos.x>canvas.width){ pos.x=0; }
-						if(pos1.y>canvas.height){ pos1.y=0; }
-						
-						ctx.clearRect(0,0,canvas.width, canvas.height);
-						
-						ctx.beginPath();
-						ctx.fillStyle="red";
-						ctx.arc(pos.x, pos.y, 50,0,Math.PI*2);
-						ctx.fill();
-						ctx.closePath();
-						
-						
-						ctx.beginPath();
-						ctx.fillStyle="blue";
-						ctx.arc(pos1.x, pos1.y, 70,0,Math.PI*2);
-						ctx.fill();
-						ctx.closePath();
-						
-						window.setTimeout(draw,50);
-						
-						
+					function upImage(){
+						var r=new FileReader();
+						r.readAsDataURL(event.target.files[0]);
+						r.onload=function(e){
+							var img= new Image();
+							img.src=event.target.result;
+							img.onload=function(){
+								canvas.width = img.width;
+								canvas.height = img.height;
+								ctx.drawImage(img,0,0);
+								ctx.font="30px arial";
+								ctx.fillText("JavaScript Course", 10,100);
+							}
+							console.log(r);
+						}
 					}
 					
 					
 					
 					
 					
-					
-					
+					// Draw circle with animation
+
+					//					window.onload = init;
+					//					
+					//					var canvas = document.getElementById("canvas");
+					//					var ctx=canvas.getContext("2d");
+					//					canvas.height= 300;
+					//					canvas.width=250;
+					//					var pos = {x:0, y:50};
+					//					var pos1 = {x:100, y:50};
+					//					
+					//					function init(){
+					//						draw();
+					//						
+					//					}
+					//					
+					//					function draw(){
+					//						pos.x = pos.x+5;
+					//						pos1.y = pos1.y+5;
+					//						if(pos.x>canvas.width){ pos.x=0; }
+					//						if(pos1.y>canvas.height){ pos1.y=0; }
+					//						
+					//						ctx.clearRect(0,0,canvas.width, canvas.height);
+					//						
+					//						ctx.beginPath();
+					//						ctx.fillStyle="red";
+					//						ctx.arc(pos.x, pos.y, 50,0,Math.PI*2);
+					//						ctx.fill();
+					//						ctx.closePath();
+					//						
+					//						
+					//						ctx.beginPath();
+					//						ctx.fillStyle="blue";
+					//						ctx.arc(pos1.x, pos1.y, 70,0,Math.PI*2);
+					//						ctx.fill();
+					//						ctx.closePath();
+					//						
+					//						window.setTimeout(draw,50);
+					//						
+					//						
+					//					}
+
+
+
+
+
+
+
 
 					//	 Drawing on Canvas *************
 
