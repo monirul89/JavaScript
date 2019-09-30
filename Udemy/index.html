@@ -20,38 +20,80 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">Complete javaScript Cource</div>
-				<input type="file" id="imgLoader" />
-				<canvas id="canvas">ddsd</canvas>
-
+				<canvas id="canvas"></canvas>
+				<input type="color" id="bgColor">
 
 				<script type="application/javascript">
-					
-					var canvas = document.getElementById("canvas");
-					var ctx=canvas.getContext("2d");
-					var imgLoader = document.getElementById("imgLoader");
-					imgLoader.addEventListener("change", upImage, false);
-					
-					function upImage(){
-						var r=new FileReader();
-						r.readAsDataURL(event.target.files[0]);
-						r.onload=function(e){
-							var img= new Image();
-							img.src=event.target.result;
-							img.onload=function(){
-								canvas.width = img.width;
-								canvas.height = img.height;
-								ctx.drawImage(img,0,0);
-								ctx.font="30px arial";
-								ctx.fillText("JavaScript Course", 10,100);
-							}
-							console.log(r);
-						}
+					var canvas=document.getElementById("canvas");
+					var ctx = canvas.getContext("2d");
+					var output=document.getElementById("output");
+					canvas.width=200;
+					canvas.height=150;
+					window.onload = init;
+					var pos={x:0,y:0};
+					var bgColor="red";
+					var bgC = document.getElementById("bgColor");
+					bgC.addEventListener("change", function(){
+						bgColor=event.target.value;
+					})
+
+					function init(){
+						canvas.addEventListener("mousemove", draw);
+						canvas.addEventListener("mousemove", sPos);
+						canvas.addEventListener("mouseenter", sPos);
 					}
 					
+					function draw(e){
+						if(e.buttons !== 1) return;
+						output.innerHTML = "X = "+pos.x+" Y= "+pos.y;
+						ctx.beginPath();
+						ctx.moveTo(pos.x,pos.y);
+						sPos(e);
+						ctx.lineTo(pos.x, pos.y);
+//						ctx.strokeStyle="red";
+						
+						ctx.stroke();
+						
+					}
 					
+					function sPos(e){
+						console.dir(e);
+						pos.x=e.pageX;
+						pos.y=e.pageY;
+						
+					}
 					
-					
-					
+
+
+					//Insert images
+
+
+					//					var canvas = document.getElementById("canvas");
+					//					var ctx=canvas.getContext("2d");
+					//					var imgLoader = document.getElementById("imgLoader");
+					//					imgLoader.addEventListener("change", upImage, false);
+					//					
+					//					function upImage(){
+					//						var r=new FileReader();
+					//						r.readAsDataURL(event.target.files[0]);
+					//						r.onload=function(e){
+					//							var img= new Image();
+					//							img.src=event.target.result;
+					//							img.onload=function(){
+					//								canvas.width = img.width;
+					//								canvas.height = img.height;
+					//								ctx.drawImage(img,0,0);
+					//								ctx.font="30px arial";
+					//								ctx.fillText("JavaScript Course", 10,100);
+					//							}
+					//							console.log(r);
+					//						}
+					//					}
+
+
+
+
+
 					// Draw circle with animation
 
 					//					window.onload = init;
