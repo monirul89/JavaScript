@@ -20,22 +20,28 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">Complete javaScript Cource</div>
-				<canvas id="canvas"></canvas>
+				<canvas id="canvas"></canvas><br>
 				<input type="color" id="bgColor">
+				<input type="button" id="save" value="Save">
+				<input type="button" id="clear" value="Clear">
 
 				<script type="application/javascript">
 					var canvas=document.getElementById("canvas");
 					var ctx = canvas.getContext("2d");
 					var output=document.getElementById("output");
-					canvas.width=200;
-					canvas.height=150;
-					window.onload = init;
+					canvas.width=400;
+					canvas.height=350;
+					window.onload=init;
 					var pos={x:0,y:0};
-					var bgColor="red";
+					var bgColor="black";
 					var bgC = document.getElementById("bgColor");
 					bgC.addEventListener("change", function(){
 						bgColor=event.target.value;
-					})
+					});
+					
+					document.getElementById("save").addEventListener("click", function(){
+						alert(bgColor);
+					});
 
 					function init(){
 						canvas.addEventListener("mousemove", draw);
@@ -50,7 +56,7 @@
 						ctx.moveTo(pos.x,pos.y);
 						sPos(e);
 						ctx.lineTo(pos.x, pos.y);
-//						ctx.strokeStyle="red";
+						ctx.strokeStyle="red";
 						
 						ctx.stroke();
 						
