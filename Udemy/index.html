@@ -24,7 +24,8 @@
 				<input type="color" id="bgColor">
 				<input type="button" id="save" value="Save">
 				<input type="button" id="clear" value="Clear">
-
+				<br>
+				<img src="jpg.jpg" width="150" height="150" id="holder" alt="Img" />
 				<script type="application/javascript">
 					var canvas=document.getElementById("canvas");
 					var ctx = canvas.getContext("2d");
@@ -32,16 +33,26 @@
 					canvas.width=400;
 					canvas.height=350;
 					window.onload=init;
-					var pos={x:0,y:0};
+					var pos={
+						x:0,
+						y:0
+					};
 					var bgColor="black";
 					var bgC = document.getElementById("bgColor");
 					bgC.addEventListener("change", function(){
 						bgColor=event.target.value;
-					});
+					})
 					
 					document.getElementById("save").addEventListener("click", function(){
-						alert(bgColor);
+						var dataURL = canvas.toDataURL();
+						console.log(dataURL);
+						document.getElementById("holder").src=dataURL;
+					})
+					
+					document.getElementById("clear").addEventListener("click", function(){
+						ctx.clearRect(0,0,canvas.width, canvas.height);
 					});
+					
 
 					function init(){
 						canvas.addEventListener("mousemove", draw);
@@ -56,7 +67,7 @@
 						ctx.moveTo(pos.x,pos.y);
 						sPos(e);
 						ctx.lineTo(pos.x, pos.y);
-						ctx.strokeStyle="red";
+						ctx.strokeStyle=bgColor;
 						
 						ctx.stroke();
 						
