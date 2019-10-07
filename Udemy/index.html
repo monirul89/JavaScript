@@ -20,10 +20,36 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">JSON javaScript Cource</div>
-				<div class="text-center">Party Invite list</div>
-				<script src="js/json.json"></script>
+				<div class="text-center">Party Invite Check list</div>
+				Guest Name : <input type="text" id="guestName">
+				+ <input type="number" id="guestNum" value="0">
+				<input type="button" value="add">
+				<script src="json.json"></script>
 				<script type="application/javascript">
-
+					var output = document.getElementById("output");
+					var party = JSON.parse(data);
+					var addGuest = document.querySelector("input[type='button']")
+					.addEventListener("click", function(e){
+						var g =document.getElementById("guestName");
+						var n =document.getElementById("guestNum");
+						
+						message('x', g.value+'+'+n.value);
+						party.push({
+							name:g.value,
+							guests:Number(n.value),
+							status:false
+						})
+						g.value = "test";
+						n.value = 0;
+					})
+					
+					function buildList(){
+						
+					}
+					function message(m,person, id){
+						output.innerHTML +="<div class='toggle' data-id='"+id+"'data-person='"+person+"'><span'"+m+"</span>"+person+"</div>";
+					}
+					
 
 
 				</script>
@@ -38,7 +64,7 @@
 				<script type="application/javascript">
 
 
-//					var party = JSON.parse(data);
+					//					var party = JSON.parse(data);
 
 					//drawin with save img
 
