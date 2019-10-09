@@ -5,7 +5,15 @@
 		<title>JavaScript</title>
 		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 		<link rel="stylesheet" href="css/main.css" type="text/css" />
-
+		<style>
+			.box{
+				font-size: 1.5em;
+				background-color: aliceblue;
+				border: 1px solid black;
+				padding: 10px;
+				margin: 10px;
+			}
+		</style>
 	</head>
 	<body>
 		<section id="content" class="content">
@@ -20,7 +28,11 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">JSON javaScript Cource</div>
-				<input type="button" id="myButton" value="Load Data">
+				<input type="button" id="myButton" value="New Country">
+				<input type="text" id="guess" placeholder="New Country">
+				<input type="button" id="myButton" value="Guess">
+				<div id="output1" class="box"> </div>
+				<div id="output2" class="box"> </div>
 				<!--
 <div class="text-center">Party Invite Check list</div>
 Guest Name : <input type="text" id="guestName">
@@ -48,7 +60,18 @@ Guest Name : <input type="text" id="guestName">
 						var myObj = JSON.parse(this.responseText);
 						
 						pick = myObj[Math.floor(Math.random()*myObj.length)];
+						document.getElementById("output1").innerHTML = shuffleWord(pick.name);
 						console.log(pick);
+					}
+					
+					function shuffleWord(w){
+						var response="";
+						w = w.split("");
+						console.log(w);
+						while(w.length>0){
+							response +=w.split(Math.floor(Math.random()*w.length), 1);
+						}
+						return response;
 					}
 
 					//
