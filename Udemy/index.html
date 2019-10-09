@@ -20,40 +20,58 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">JSON javaScript Cource</div>
-				<div class="text-center">Party Invite Check list</div>
-				Guest Name : <input type="text" id="guestName">
-				+ <input type="number" id="guestNum" value="0">
-				<input type="button" value="add">
+				<input type="button" id="myButton" value="Load Data">
+				<!--
+<div class="text-center">Party Invite Check list</div>
+Guest Name : <input type="text" id="guestName">
++ <input type="number" id="guestNum" value="0">
+<input type="button" value="add">
+-->
 				<!--				<script src="json.json"></script>-->
 
 				<script type="application/javascript">
 
 					window.onload = init;
-
+					//					https://restcountries.eu/rest/v2/all
 					function init(){
-						loadJSON();
-
-						//						loadJSON(function (response){
-						//							console.log(response);
-						//						})
-
 
 					}
-
-					function loadJSON(callback){
-						var xHR = new XMLHttpRequest;
-						xHR.onreadystatechange = function (){
-							if(this.readyState ==4 && this.status ==200){
-							   var myObj = JSON.parse(this.responseText);
-							console.log(myObj);
-						}
-
+					function myLoader(){
+						var xHR = new XMLHttpRequest(response);
+						xHR.onload = rOutput;
+						xHR.open("get","https://restcountries.eu/rest/v2/all", true);
+						xHR.send();
 					}
 
-					xHR.open('GET', 'https://api.myjson.com/bins/tpzez', true);
-					xHR.send();
-					console.log(xHR);
+					function rOutput(){
+						console.log(this);
 					}
+
+					//
+					//					function init(){
+					//						loadJSON();
+
+					//						loadJSON(function (response){
+					//							console.log(response);
+					//						})
+
+
+					//					}
+					//
+					//					function loadJSON(callback){
+					//						var xHR = new XMLHttpRequest;
+					//						xHR.onreadystatechange = function (){
+					//							if(this.readyState ==4 && this.status ==200){
+					//							   var myObj = JSON.parse(this.responseText);
+					//							console.log(myObj);
+					//						}
+					//
+					//					}
+					//
+					//					xHR.open('GET', 'https://api.myjson.com/bins/tpzez', true);
+					//					xHR.send();
+					//					console.log(xHR);
+					//					}
 
 					//					var output = document.getElementById("output");
 					//					var party = JSON.parse(data);
