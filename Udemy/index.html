@@ -24,32 +24,61 @@
 				Guest Name : <input type="text" id="guestName">
 				+ <input type="number" id="guestNum" value="0">
 				<input type="button" value="add">
-				<script src="json.json"></script>
+				<!--				<script src="json.json"></script>-->
+
 				<script type="application/javascript">
-					var output = document.getElementById("output");
-					var party = JSON.parse(data);
-					var addGuest = document.querySelector("input[type='button']")
-					.addEventListener("click", function(e){
-						var g =document.getElementById("guestName");
-						var n =document.getElementById("guestNum");
-						
-						message('x', g.value+'+'+n.value);
-						party.push({
-							name:g.value,
-							guests:Number(n.value),
-							status:false
-						})
-						g.value = "test";
-						n.value = 0;
-					})
-					
-					function buildList(){
-						
+
+					window.onload = init;
+
+					function init(){
+						loadJSON();
+
+						//						loadJSON(function (response){
+						//							console.log(response);
+						//						})
+
+
 					}
-					function message(m,person, id){
-						output.innerHTML +="<div class='toggle' data-id='"+id+"'data-person='"+person+"'><span'"+m+"</span>"+person+"</div>";
+
+					function loadJSON(callback){
+						var xHR = new XMLHttpRequest;
+						xHR.onreadystatechange = function (){
+							if(this.readyState ==4 && this.status ==200){
+							   var myObj = JSON.parse(this.responseText);
+							console.log(myObj);
+						}
+
 					}
-					
+
+					xHR.open('GET', 'https://api.myjson.com/bins/tpzez', true);
+					xHR.send();
+					console.log(xHR);
+					}
+
+					//					var output = document.getElementById("output");
+					//					var party = JSON.parse(data);
+					//					var addGuest = document.querySelector("input[type='button']")
+					//					.addEventListener("click", function(e){
+					//						var g =document.getElementById("guestName");
+					//						var n =document.getElementById("guestNum");
+					//						
+					//						message('x', g.value+'+'+n.value);
+					//						party.push({
+					//							name:g.value,
+					//							guests:Number(n.value),
+					//							status:false
+					//						})
+					//						g.value = "test";
+					//						n.value = 0;
+					//					})
+					//					
+					//					function buildList(){
+					//						
+					//					}
+					//					function message(m,person, id){
+					//						output.innerHTML +="<div class='toggle' data-id='"+id+"'data-person='"+person+"'><span'"+m+"</span>"+person+"</div>";
+					//					}
+
 
 
 				</script>
