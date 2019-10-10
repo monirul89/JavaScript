@@ -30,7 +30,7 @@
 				<div id="output" class="text-center">JSON javaScript Cource</div>
 				<input type="button" id="myButton" value="New Country">
 				<input type="text" id="guess" placeholder="New Country">
-				<input type="button" id="myButton" value="Guess">
+				<input type="button" id="myGuess" value="Guess">
 				<div id="output1" class="box"> </div>
 				<div id="output2" class="box"> </div>
 				<!--
@@ -55,21 +55,35 @@ Guest Name : <input type="text" id="guestName">
 						xHR.open("get","https://restcountries.eu/rest/v2/all", true);
 						xHR.send();
 					}
+					
+					function guessWord(){
+						//value of guess
+						//loop through the letters of pick.name
+						//toLowerCase
+						//update output2 with correct letters
+					}
 
 					function rOutput(){
 						var myObj = JSON.parse(this.responseText);
-						
+
 						pick = myObj[Math.floor(Math.random()*myObj.length)];
+						var ww='';
+						
+						for (var x=0; x<pick.name.length; x++){
+							ww +='-';
+							
+						}
+
 						document.getElementById("output1").innerHTML = shuffleWord(pick.name);
-						console.log(pick);
+						document.getElementById("output2").innerHTML = ww;
 					}
-					
+
 					function shuffleWord(w){
-						var response="";
-						w = w.split("");
-						console.log(w);
+						var response='';
+						w = w.split('');
+//						console.log(w);
 						while(w.length>0){
-							response +=w.split(Math.floor(Math.random()*w.length), 1);
+							response +=w.splice(Math.floor(Math.random()*w.length), 1);
 						}
 						return response;
 					}
