@@ -13,6 +13,10 @@
 				padding: 10px;
 				margin: 10px;
 			}
+			.box1{
+				width: 100%;
+				height: 150px;
+			}
 		</style>
 	</head>
 	<body>
@@ -30,8 +34,11 @@
 				<div id="output" class="text-center">JSON javaScript Cource</div>
 				<input type="button" id="myButton" value="New Country">
 				<input type="text" id="guess" placeholder="Guess...">
-				<input type="button" id="myGuess" value="Guess">
-				<img src="img/images1.jpg" width="300px" alt="images1">
+				<input type="button" id="myGuess" value="Guess"><br>
+				<div id="" class="box box1">
+					<img src="img/images1.jpg" height="100%" alt="images1">
+				</div>
+				
 				<div id="output1" class="box"> </div>
 				<div id="output2" class="box"> </div>
 				<!--
@@ -85,6 +92,7 @@ Guest Name : <input type="text" id="guestName">
 							ww +='-';
 
 						}
+					document.querySelector('img').src=pick.flag;
 						console.log(pick.name);
 						document.getElementById("output1").innerHTML = shuffleWord(pick.name);
 						document.getElementById("output2").innerHTML = ww;
