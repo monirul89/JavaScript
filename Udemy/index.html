@@ -29,7 +29,7 @@
 
 				<div id="output" class="text-center">JSON javaScript Cource</div>
 				<input type="button" id="myButton" value="New Country">
-				<input type="text" id="guess" placeholder="New Country">
+				<input type="text" id="guess" placeholder="Guess...">
 				<input type="button" id="myGuess" value="Guess">
 				<div id="output1" class="box"> </div>
 				<div id="output2" class="box"> </div>
@@ -47,6 +47,7 @@ Guest Name : <input type="text" id="guestName">
 					var pick = "";
 					function init(){
 						document.getElementById("myButton").addEventListener('click', myLoader, false);
+						document.getElementById("myGuess").addEventListener('click', guessWord, false);
 
 					}
 					function myLoader(){
@@ -55,12 +56,21 @@ Guest Name : <input type="text" id="guestName">
 						xHR.open("get","https://restcountries.eu/rest/v2/all", true);
 						xHR.send();
 					}
-					
+
 					function guessWord(){
-						//value of guess
-						//loop through the letters of pick.name
+						var g = document.getElementById('guess').value;
+						var userGuess ='';
+						g.toLowerCase();
+						for(var x=0; x<pick.name.length; x++){
+							if(x>=g.length){ break; }
+							if(g[x]==pick.name[x].toLowerCase()){
+								userGuess +=g[x];
+								console.log(userGuess);
+							}
+						console.log('Guess word '+x+' '+pick.name);
+						}
 						//toLowerCase
-						//update output2 with correct letters
+						document.getElementById("output2").innerHTML = userGuess;
 					}
 
 					function rOutput(){
@@ -68,10 +78,10 @@ Guest Name : <input type="text" id="guestName">
 
 						pick = myObj[Math.floor(Math.random()*myObj.length)];
 						var ww='';
-						
+
 						for (var x=0; x<pick.name.length; x++){
 							ww +='-';
-							
+
 						}
 
 						document.getElementById("output1").innerHTML = shuffleWord(pick.name);
@@ -81,11 +91,11 @@ Guest Name : <input type="text" id="guestName">
 					function shuffleWord(w){
 						var response='';
 						w = w.split('');
-//						console.log(w);
+						//						console.log(w);
 						while(w.length>0){
 							response +=w.splice(Math.floor(Math.random()*w.length), 1);
 						}
-						return response;
+						return response.toLowerCase();
 					}
 
 					//
