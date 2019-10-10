@@ -31,6 +31,7 @@
 				<input type="button" id="myButton" value="New Country">
 				<input type="text" id="guess" placeholder="Guess...">
 				<input type="button" id="myGuess" value="Guess">
+				<img src="img/images1.jpg" width="300px" alt="images1">
 				<div id="output1" class="box"> </div>
 				<div id="output2" class="box"> </div>
 				<!--
@@ -65,11 +66,12 @@ Guest Name : <input type="text" id="guestName">
 							if(x>=g.length){ break; }
 							if(g[x]==pick.name[x].toLowerCase()){
 								userGuess +=g[x];
-								console.log(userGuess);
+							}else{
+								userGuess +='-';
 							}
-						console.log('Guess word '+x+' '+pick.name);
 						}
 						//toLowerCase
+						
 						document.getElementById("output2").innerHTML = userGuess;
 					}
 
@@ -83,7 +85,7 @@ Guest Name : <input type="text" id="guestName">
 							ww +='-';
 
 						}
-
+						console.log(pick.name);
 						document.getElementById("output1").innerHTML = shuffleWord(pick.name);
 						document.getElementById("output2").innerHTML = ww;
 					}
