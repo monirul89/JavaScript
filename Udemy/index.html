@@ -32,15 +32,20 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">JSON javaScript Cource</div>
+				<script type="application/javascript">
+					
+				</script>
+<!--
 				<input type="button" id="myButton" value="New Country">
 				<input type="text" id="guess" placeholder="Guess...">
 				<input type="button" id="myGuess" value="Guess"><br>
 				<div id="" class="box box1">
 					<img src="img/images1.jpg" height="100%" alt="images1">
 				</div>
-				
+
 				<div id="output1" class="box"> </div>
 				<div id="output2" class="box"> </div>
+-->
 				<!--
 <div class="text-center">Party Invite Check list</div>
 Guest Name : <input type="text" id="guestName">
@@ -51,62 +56,72 @@ Guest Name : <input type="text" id="guestName">
 
 				<script type="application/javascript">
 
-					window.onload = init;
-					var pick = "";
-					function init(){
-						document.getElementById("myButton").addEventListener('click', myLoader, false);
-						document.getElementById("myGuess").addEventListener('click', guessWord, false);
 
-					}
-					function myLoader(){
-						var xHR = new XMLHttpRequest();
-						xHR.onload = rOutput;
-						xHR.open("get","https://restcountries.eu/rest/v2/all", true);
-						xHR.send();
-					}
 
-					function guessWord(){
-						var g = document.getElementById('guess').value;
-						var userGuess ='';
-						g.toLowerCase();
-						for(var x=0; x<pick.name.length; x++){
-							if(x>=g.length){ break; }
-							if(g[x]==pick.name[x].toLowerCase()){
-								userGuess +=g[x];
-							}else{
-								userGuess +='-';
-							}
-						}
-						//toLowerCase
-						
-						document.getElementById("output2").innerHTML = userGuess;
-					}
+					//	start of api base country random generate and game
 
-					function rOutput(){
-						var myObj = JSON.parse(this.responseText);
+					//					window.onload = init;
+					//					var pick = "";
+					//					function init(){
+					//						document.getElementById("myButton").addEventListener('click', myLoader, false);
+					//						document.getElementById("myGuess").addEventListener('click', guessWord, false);
+					//
+					//					}
+					//					function myLoader(){
+					//						var xHR = new XMLHttpRequest();
+					//						xHR.onload = rOutput;
+					//						xHR.open("get","https://restcountries.eu/rest/v2/all", true);
+					//						xHR.send();
+					//					}
+					//
+					//					function guessWord(){
+					//						var g = document.getElementById('guess').value;
+					//						var userGuess ='';
+					//						g.toLowerCase();
+					//						for(var x=0; x<pick.name.length; x++){
+					//							if(x>=g.length){ break; }
+					//							if(g[x]==pick.name[x].toLowerCase()){
+					//								userGuess +=g[x];
+					//							}else{
+					//								userGuess +='-';
+					//							}
+					//						}
+					//						//toLowerCase
+					//						
+					//						document.getElementById("output2").innerHTML = userGuess;
+					//					}
+					//
+					//					function rOutput(){
+					//						var myObj = JSON.parse(this.responseText);
+					//
+					//						pick = myObj[Math.floor(Math.random()*myObj.length)];
+					//						var ww='';
+					//
+					//						for (var x=0; x<pick.name.length; x++){
+					//							ww +='-';
+					//
+					//						}
+					//					document.querySelector('img').src=pick.flag;
+					//						console.log(pick.name);
+					//						document.getElementById("output1").innerHTML = shuffleWord(pick.name);
+					//						document.getElementById("output2").innerHTML = ww;
+					//					}
+					//
+					//					function shuffleWord(w){
+					//						var response='';
+					//						w = w.split('');
+					//						//						console.log(w);
+					//						while(w.length>0){
+					//							response +=w.splice(Math.floor(Math.random()*w.length), 1);
+					//						}
+					//						return response.toLowerCase();
+					//					}
 
-						pick = myObj[Math.floor(Math.random()*myObj.length)];
-						var ww='';
 
-						for (var x=0; x<pick.name.length; x++){
-							ww +='-';
+					//					end of api base country
 
-						}
-					document.querySelector('img').src=pick.flag;
-						console.log(pick.name);
-						document.getElementById("output1").innerHTML = shuffleWord(pick.name);
-						document.getElementById("output2").innerHTML = ww;
-					}
 
-					function shuffleWord(w){
-						var response='';
-						w = w.split('');
-						//						console.log(w);
-						while(w.length>0){
-							response +=w.splice(Math.floor(Math.random()*w.length), 1);
-						}
-						return response.toLowerCase();
-					}
+
 
 					//
 					//					function init(){
