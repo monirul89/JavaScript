@@ -33,24 +33,43 @@
 
 				<div id="output" class="text-center">JSON javaScript Cource</div>
 
-				<input type="text" id="idTxt">
-				<input type="button" id="sendData" value="Send">
-
+				<input type="text" id="searchYoutube">
+				<input type="button" id="search" value="Search Youtube">
+				<div id="output1"></div>
 				<script type="application/javascript">
-					document.getElementById('sendData').addEventListener('click',myFunction);
-					function myFunction(){
-						var txt = document.getElementById('idTxt').value;
+					window.onload = init;
+					
+					
+					function init(){
+						document.getElementById('search').addEventListener('click', ySearch, false);
+					}
+
+					function ySearch(){
+						var searchTeam = document.getElementById('searchYoutube').value;
+						var url = 'https://www.googleapis.com/youtube/v3/search/?part=snippet&key=AIzaSyAR1_G0sAXGS44D_I55s7aUpdic9kgO39c&q=test&maxResults=20';
+						
+						getJSON(url, function (data){
+							console.log(data);
+						})
+					}
+					
+					function getJSON(url, callback){
 						var xhr = new XMLHttpRequest();
-						xhr.onreadystatechange=function(){
-							if(xhr.readyState==4){
-								document.getElementById('output').innerHTML = this.responseText;
-								console.log(this.responseText);
+						xhr.open('get', url, true);
+						xhr.responseTypet='json';
+						xhr.onload = function(){
+							if(xhr.status==200){
+								callback(xhr.response);
 							}
 						}
-						xhr.open('POST','http://localhost/javascript/Udemy/post.php',true);
-						xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-						xhr.send('name='+txt+'&age=50');
+						xhr.send();
 					}
+
+
+
+					//					AIzaSyAR1_G0sAXGS44D_I55s7aUpdic9kgO39c
+					//					https://www.googleapis.com/youtube/v3/search/?key=AIzaSyAR1_G0sAXGS44D_I55s7aUpdic9kgO39c&q=test
+
 				</script>
 				<!--
 <input type="button" id="myButton" value="New Country">
@@ -73,9 +92,27 @@ Guest Name : <input type="text" id="guestName">
 
 				<script type="application/javascript">
 
+					//	start of input data with display
+					//document.getElementById('sendData').addEventListener('click',myFunction);
+					//					function myFunction(){
+					//						var txt = document.getElementById('idTxt').value;
+					//						var xhr = new XMLHttpRequest();
+					//						xhr.onreadystatechange=function(){
+					//							if(xhr.readyState==4){
+					//								document.getElementById('output').innerHTML = this.responseText;
+					//								console.log(this.responseText);
+					//							}
+					//						}
+					//						xhr.open('POST','http://localhost/javascript/Udemy/post.php',true);
+					//						xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+					//						xhr.send('name='+txt+'&age=50');
+					//					}
 
+
+					//	End of input data with display
 
 					//	start of api base country random generate and game
+
 
 					//					window.onload = init;
 					//					var pick = "";
