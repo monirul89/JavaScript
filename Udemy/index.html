@@ -49,8 +49,22 @@
 						var url = 'https://www.googleapis.com/youtube/v3/search/?part=snippet&key=AIzaSyAR1_G0sAXGS44D_I55s7aUpdic9kgO39c&q=test&maxResults=20';
 						
 						getJSON(url, function (data){
-							console.log(data);
-						})
+							showResults(data.items);
+						});
+						console.log(url.url[0]);
+					}
+					
+					function showResults(results){
+						var html ="";
+						for(var value in results){
+							console.log(value);
+							var title=results[value].snippet.title;
+							var description = results[value].snippet.descroption;
+//							var img = results[value].snippet.thumbnails,default.url;
+							html +='<div><h3>'+title+'</h3><p>'+description+'</p><img src="'+img+'"></div>';
+							
+						}
+							document.getElementById("output1").innerHTML = html;
 					}
 					
 					function getJSON(url, callback){
