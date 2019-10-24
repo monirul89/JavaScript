@@ -64,12 +64,12 @@
 							html +='<div><h3>'+title+'</h3><p>'+description+'</p><img src="'+img+'"></div>';
 							
 						}
-							document.getElementById("output1").innerHTML = html;
+							document.getElementById("output1").innerHTML = ""+html;
 					}
 					
 					function getJSON(url, callback){
 						var xhr = new XMLHttpRequest();
-						xhr.open('get', url, true);
+						xhr.open('get',url,true);
 						xhr.responseTypet='json';
 						xhr.onload = function(){
 							if(xhr.status==200){
