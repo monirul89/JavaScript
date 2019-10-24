@@ -33,51 +33,73 @@
 
 				<div id="output" class="text-center">JSON javaScript Cource</div>
 
-				<input type="text" id="searchYoutube">
-				<input type="button" id="search" value="Search Youtube">
+				<input type="button" id="search" value="Load">
 				<div id="output1"></div>
 				<script type="application/javascript">
-					window.onload = init;
 					
 					
-					function init(){
-						document.getElementById('search').addEventListener('click', ySearch, false);
-					}
-
-					function ySearch(){
-						var searchTeam = document.getElementById('searchYoutube').value;
-						var url = 'https://www.googleapis.com/youtube/v3/search/?part=snippet&key=AIzaSyAR1_G0sAXGS44D_I55s7aUpdic9kgO39c&q=test&maxResults=20';
-						
-						getJSON(url, function (data){
-							showResults(data.items);
-						});
-						console.log(url.url[0]);
-					}
 					
-					function showResults(results){
-						var html ="";
-						for(var value in results){
-							console.log(value);
-							var title=results[value].snippet.title;
-							var description = results[value].snippet.descroption;
-//							var img = results[value].snippet.thumbnails,default.url;
-							html +='<div><h3>'+title+'</h3><p>'+description+'</p><img src="'+img+'"></div>';
-							
-						}
-							document.getElementById("output1").innerHTML = ""+html;
-					}
 					
-					function getJSON(url, callback){
-						var xhr = new XMLHttpRequest();
-						xhr.open('get',url,true);
-						xhr.responseTypet='json';
-						xhr.onload = function(){
-							if(xhr.status==200){
-								callback(xhr.response);
-							}
-						}
-						xhr.send();
-					}
+					
+					
+//					window.onload = init;
+//					function init(){
+//						getJSON('https://api.myjson.com/bins/iopuc', function(response){
+//							myData = response;
+//							bildPage();
+//						})
+//					}
+//					
+//					function getJSON(url, callback){
+//						var xhr = new XMLHttpRequest();
+//						xhr.open('get', url, true);
+//						console.log(xhr);
+//					}
+					
+					
+					
+					
+					//					window.onload = init;
+					//					
+					//					
+					//					function init(){
+					//						document.getElementById('search').addEventListener('click', ySearch, false);
+					//					}
+					//
+					//					function ySearch(){
+					//						var searchTeam = document.getElementById('searchYoutube').value;
+					//						var url = 'https://www.googleapis.com/youtube/v3/search/?part=snippet&key=AIzaSyAR1_G0sAXGS44D_I55s7aUpdic9kgO39c&q=test&maxResults=20';
+					//						
+					//						getJSON(url, function (data){
+					//							showResults(data.items);
+					//						});
+					//						console.log(url.url[0]);
+					//					}
+					//					
+					//					function showResults(results){
+					//						var html ="";
+					//						for(var value in results){
+					//							console.log(value);
+					//							var title=results[value].snippet.title;
+					//							var description = results[value].snippet.descroption;
+					////							var img = results[value].snippet.thumbnails,default.url;
+					//							html +='<div><h3>'+title+'</h3><p>'+description+'</p><img src="'+img+'"></div>';
+					//							
+					//						}
+					//							document.getElementById("output1").innerHTML = ""+html;
+					//					}
+					//					
+					//					function getJSON(url, callback){
+					//						var xhr = new XMLHttpRequest();
+					//						xhr.open('get',url,true);
+					//						xhr.responseTypet='json';
+					//						xhr.onload = function(){
+					//							if(xhr.status==200){
+					//								callback(xhr.response);
+					//							}
+					//						}
+					//						xhr.send();
+					//					}
 
 
 
