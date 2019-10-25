@@ -32,33 +32,66 @@
 			<section class="maincontent">
 
 				<div id="output" class="text-center">JSON javaScript Cource</div>
-
-				<input type="button" id="search" value="Load">
-				<div id="output1"></div>
 				<script type="application/javascript">
+
+					class MakeName{
+						constructor(first, last){
+							this.firstName = first;
+							this.lastName = last;
+						}
+						
+						completeName(){
+							console.log(this);
+							console.log(this.firstName+ ' ' +this.lastName);
+						}
+					}
 					
+					let friend = new MakeName('Laurence','Svekis');
+					friend.completeName();
 					
-					
-					
-					
-					
-//					window.onload = init;
-//					function init(){
-//						getJSON('https://api.myjson.com/bins/iopuc', function(response){
-//							myData = response;
-//							bildPage();
-//						})
-//					}
-//					
-//					function getJSON(url, callback){
-//						var xhr = new XMLHttpRequest();
-//						xhr.open('get', url, true);
-//						console.log(xhr);
-//					}
-					
-					
-					
-					
+					//					function outputMessage(message = "No value", b=show(message, "blank","new")){
+					//						output.innerHTML = message;
+					//						console.log(message);
+					//					}
+					//					
+					//					function show(){
+					//						console(arguments[0]);
+					//					}
+
+
+
+					//					console.log(a);
+					//					console.log(b);
+					//					console.log(c);
+					//					var a ="hello world";
+					//					const b="constant";
+					//					let c="hello1 world";
+					//					
+					//					for(var i=0; i<6; i++){
+					//						console.log(i);
+					//					}
+
+
+
+
+
+					//					window.onload = init;
+					//					function init(){
+					//						getJSON('https://api.myjson.com/bins/iopuc', function(response){
+					//							myData = response;
+					//							bildPage();
+					//						})
+					//					}
+					//					
+					//					function getJSON(url, callback){
+					//						var xhr = new XMLHttpRequest();
+					//						xhr.open('get', url, true);
+					//						console.log(xhr);
+					//					}
+
+
+
+
 					//					window.onload = init;
 					//					
 					//					
