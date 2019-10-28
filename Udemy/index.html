@@ -17,6 +17,31 @@
 				width: 100%;
 				height: 150px;
 			}
+			.btn{
+				padding: 15px;
+				border: 1px solid #ddd;
+				text-align: center;
+				display: inline-block;
+				font-size: 1em;
+				background-color: red;
+				border-radius: 15px;
+				color: white;
+				margin: auto;
+				cursor: pointer;
+				width: 35%;
+			}
+			.container{
+				width: 100%;
+				height: 100%;
+				text-align: center;
+				margin: auto;
+			}
+			.score{
+				font-size: 1.5em;
+				padding: 5px;
+				width: 40%;
+				margin: auto;
+			}
 		</style>
 	</head>
 	<body>
@@ -30,25 +55,29 @@
 				</h2>
 			</header>
 			<section class="maincontent">
-
-				<div id="output" class="text-center">JSON javaScript Cource</div>
+				<div class="container">
+					<div class="score">0</div>
+					<div class="startGame btn">start Game Here</div>
+				</div>
+				
+				
 				<script type="application/javascript">
 
-					class MakeName{
-						constructor(first, last){
-							this.firstName = first;
-							this.lastName = last;
-						}
-						
-						completeName(){
-							console.log(this);
-							console.log(this.firstName+ ' ' +this.lastName);
-						}
-					}
-					
-					let friend = new MakeName('Laurence','Svekis');
-					friend.completeName();
-					
+					//					class MakeName{
+					//						constructor(first, last){
+					//							this.firstName = first;
+					//							this.lastName = last;
+					//						}
+					//						
+					//						completeName(){
+					//							console.log(this);
+					//							console.log(this.firstName+ ' ' +this.lastName);
+					//						}
+					//					}
+					//					
+					//					let friend = new MakeName('Laurence','Svekis');
+					//					friend.completeName();
+
 					//					function outputMessage(message = "No value", b=show(message, "blank","new")){
 					//						output.innerHTML = message;
 					//						console.log(message);
