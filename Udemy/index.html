@@ -88,8 +88,14 @@
 						div.style.backgroundColor='#'+Math.random().toString(16).substr(-6);
 						div.style.border = '1px solid black';
 						div.startTime = Date.now();
+						div.addEventListener('click', function(){
+							let endTime = Date.now();
+							let diff =(endTime - div.startTime) / 1000;
+							scoreArea.innerHTML = 'Clicked in '+ diff +'seconds';
+							startGame.style.display='block';
+							container.removeChild(div);
+						})
 						container.appendChild(div);
-						console.log(div);
 					}
 					
 
